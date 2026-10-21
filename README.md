@@ -69,8 +69,9 @@ The mod keeps a nearby wire-position index, observes successful client block
 changes, extracts immutable label data, and submits native text. It introduces
 no artificial entities, server packets, terrain rebuilds or custom GPU pipelines.
 
-Live Minecraft tests cover minimal Fabric, the copied 66-mod environment, and
-Iris with BSL. See [verification and limits](docs/verification.md) for the exact
+Live Minecraft tests cover minimal Fabric, the copied 66-mod environment,
+Iris with BSL and Complementary, Distant Horizons and VulkanMod. See
+[verification and limits](docs/verification.md) for the exact
 versions, screenshots, performance measurements and remaining qualifications.
 Project decisions and the current milestone are maintained in [notes.md](notes.md).
 

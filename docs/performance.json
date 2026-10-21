@@ -7,7 +7,6 @@
   },
   "method": {
     "renderer": "Minecraft normal renderer with Fabric Loader and Fabric API",
-    "fixture": "1024 actual power-0 wire blocks in a fixed overhead view",
     "range_blocks": 32,
     "label_limit": 8192,
     "scale": 1,
@@ -17,8 +16,12 @@
     "reported_units": "milliseconds per client rendering loop",
     "frame_limit": "unlimited",
     "vsync": false,
-    "comparison": "same installed mod, enabled versus disabled, three alternating OFF/ON pairs",
-    "limitations": "Includes native profiler overhead and display/scheduling effects; not isolated GPU timing or a confidence interval."
+    "comparison": "Same installed mod, enabled versus disabled: three OFF/ON dense pairs and two ON/OFF empty-control pairs.",
+    "limitations": "Includes native profiler overhead and display/scheduling effects; not isolated GPU timing or a confidence interval.",
+    "fixtures": {
+      "dense": "1024 actual power-0 wire blocks in a fixed overhead view",
+      "empty": "Fixed camera outside all wire fixtures; no nearby wire labels"
+    }
   },
   "dense": {
     "captures": [
@@ -233,5 +236,137 @@
     ],
     "interpretation": "The earlier build used a nearest-candidate heap and sort even below the cap. Extraction profile share falls from 7.76 percent in its enabled capture to 3.09 percent in the last optimized enabled capture; ordinary feature rendering remains near 2.5 percent. This is consistent with the targeted extraction improvement, without proving causality across separate recordings."
   },
-  "privacy": "Only sanitized fixture/method details, numeric summaries and content hashes are included. Raw profiling archives, paths, system reports, options and raw samples are excluded."
+  "privacy": "Only sanitized fixture/method details, numeric summaries and content hashes are included. Raw profiling archives, paths, system reports, options and raw samples are excluded.",
+  "empty": {
+    "captures": [
+      {
+        "pair": 1,
+        "condition": "on",
+        "capture_sha256": "78ae0b12dcdf6cb77a8d1c428f76352a48627a79b62905e0dd478d0a3f6fe83d",
+        "metric_csv_sha256": "dc1c389ad0ea007e531422a0dc7f872d2dcf6c14913b98127211d2c65402b184",
+        "samples": 2356,
+        "metrics_ms": {
+          "mean": 4.185229074702886,
+          "median": 3.8844000000000003,
+          "p95": 6.417949999999999,
+          "p99": 8.409704999999997,
+          "min": 2.1501,
+          "max": 28.5019
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.78,
+          "renderFeatures_total_profile_share_percent": 0.07,
+          "updateDisplay_total_profile_share_percent": 31.63
+        }
+      },
+      {
+        "pair": 1,
+        "condition": "off",
+        "capture_sha256": "69ad0af108fce940dbcf28550049ad42e558ed481989bec6ab15f34a1239b5a3",
+        "metric_csv_sha256": "85256fe1cd5556a68db8138197f3f28dc7ab4d86dfac26a08aeb4a6644d1b87f",
+        "samples": 2563,
+        "metrics_ms": {
+          "mean": 3.858341279750293,
+          "median": 3.6103,
+          "p95": 5.70638,
+          "p99": 7.3083740000000095,
+          "min": 2.2036,
+          "max": 12.1734
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.54,
+          "renderFeatures_total_profile_share_percent": 0.06,
+          "updateDisplay_total_profile_share_percent": 31.33
+        }
+      },
+      {
+        "pair": 2,
+        "condition": "on",
+        "capture_sha256": "e8b605281ff2548e5009c2452b10aa1c823673db9be9396002cb4565ee897753",
+        "metric_csv_sha256": "f9ccec55040043aee40cccc06435190d309c427eb01c5fec726f276e239e2675",
+        "samples": 2457,
+        "metrics_ms": {
+          "mean": 4.035773422873423,
+          "median": 3.6929,
+          "p95": 6.322359999999995,
+          "p99": 8.586348000000005,
+          "min": 2.0088,
+          "max": 22.5953
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.64,
+          "renderFeatures_total_profile_share_percent": 0.06,
+          "updateDisplay_total_profile_share_percent": 33.3
+        }
+      },
+      {
+        "pair": 2,
+        "condition": "off",
+        "capture_sha256": "e357f0cb5b94c64f370a8b8829d0e853d51f6453e10e85ef5396d61237964bd0",
+        "metric_csv_sha256": "ac186fb5dc6320d6e238cd1f1a069677c1b00b8c649f2f8cf9f0fe28f915ba64",
+        "samples": 2653,
+        "metrics_ms": {
+          "mean": 3.7402732973991704,
+          "median": 3.509,
+          "p95": 5.451240000000001,
+          "p99": 6.803448520000001,
+          "min": 2.012899,
+          "max": 13.796499
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.55,
+          "renderFeatures_total_profile_share_percent": 0.06,
+          "updateDisplay_total_profile_share_percent": 32.97
+        }
+      }
+    ],
+    "summary_by_condition": {
+      "off": {
+        "captures": 2,
+        "samples": 5216,
+        "capture_medians_ms": [
+          3.6103,
+          3.509
+        ],
+        "median_of_capture_medians_ms": 3.55965,
+        "mean_of_capture_medians_ms": 3.55965,
+        "mean_of_capture_means_ms": 3.799307288574732,
+        "pooled_mean_ms": 3.79828868059816,
+        "capture_median_range_percent": 2.8457854002500294,
+        "minimum_three_captures_met": false
+      },
+      "on": {
+        "captures": 2,
+        "samples": 4813,
+        "capture_medians_ms": [
+          3.8844000000000003,
+          3.6929
+        ],
+        "median_of_capture_medians_ms": 3.78865,
+        "mean_of_capture_medians_ms": 3.78865,
+        "mean_of_capture_means_ms": 4.110501248788155,
+        "pooled_mean_ms": 4.108933097859962,
+        "capture_median_range_percent": 5.0545708893669365,
+        "minimum_three_captures_met": false
+      }
+    },
+    "comparison": {
+      "median_delta_percent_on_vs_off": 6.433216748837678,
+      "mean_of_capture_medians_delta_percent_on_vs_off": 6.433216748837678,
+      "pooled_mean_delta_percent_on_vs_off": 8.178536266834824,
+      "paired_median_deltas_percent": [
+        7.592166855939952,
+        5.240809347392417
+      ],
+      "maximum_within_condition_median_range_percent": 5.0545708893669365,
+      "target_percent": 5,
+      "point_estimate_below_target": false,
+      "minimum_captures_per_condition": 3,
+      "minimum_three_captures_met": false,
+      "demonstrated_upper_bound_below_target": false,
+      "status": "insufficient repetition: two captures per condition, below the three-capture protocol",
+      "interpretation": "Descriptive empty-scene controls only. The owned-session watchdog stopped the run after two pairs. The aggregate point estimate exceeds 5 percent; no repeatable overhead bound or performance pass is established. An earlier unpaired ON capture from a separate session is excluded."
+    }
+  },
+  "performance_qualification": "No repeatable overhead bound below 5 percent is demonstrated. Dense controls have three pairs and an aggregate point estimate below target; empty controls have two pairs, insufficient protocol repetition, and an aggregate point estimate above target. Performance work stops at this qualified checkpoint."
 }
