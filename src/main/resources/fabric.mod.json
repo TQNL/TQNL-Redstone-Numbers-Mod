@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "redstonenumbers",
+  "version": "${version}",
+  "name": "Redstone Numbers",
+  "description": "Client-side camera-facing power numbers for redstone wire, using Minecraft's ordinary world text renderer.",
+  "authors": ["TQNL contributors"],
+  "license": ["MIT", "CC-BY-NC-SA-4.0"],
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.tqnl.redstonenumbers.RedstoneNumbersClient"]
+  },
+  "mixins": ["redstonenumbers.client.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": ">=0.141.6+1.21.11"
+  }
+}

@@ -1,0 +1,11 @@
+.gradle/
+build/
+run/
+work/
+outputs/
+.idea/
+*.iml
+local.properties
+__pycache__/
+*.pyc
+hs_err_pid*.log

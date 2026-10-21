@@ -1,0 +1,23 @@
+{
+  "source": "TQNL/TQNL-Redstone-Numbers",
+  "revision": "a29eab7c38270e8dddfb2b64a1f56fb8291bbc73",
+  "transformation": "top-left sampled quarter, nearest scale to 16px, 4x4 atlas",
+  "glyph_inputs_sha256": {
+    "redstone_power_level_00.png": "4b1e7b0bc42985b67a39d7110226599e1250fd87ba4b6eda8f840f9385b73733",
+    "redstone_power_level_01.png": "bd1fed8d8bd81ff0e8841da8ef772330eb06a07d87c384315a8c75ff6999e54f",
+    "redstone_power_level_02.png": "1ff54324cfb5d46d8278f150d9c2cd2dd15f66484da8cd44452f4862721a7b90",
+    "redstone_power_level_03.png": "8c681a53526179ad93a6f1d9f1453b889927ca1ebbea717120700dfc9b4cf50c",
+    "redstone_power_level_04.png": "cd58b27e6ff5e688d1ae04d2d2f13b336b6fd51c7e0fe266776ac53a03b29a99",
+    "redstone_power_level_05.png": "95afe659c325b145824ce98387b2e0a7aa9ff4c268d49c93c7aa64683319a556",
+    "redstone_power_level_06.png": "e2e85296ca7c04b4870c77285571ef39dc5da218c1c98cb865713b495920562e",
+    "redstone_power_level_07.png": "1c41450d7e35f40a5258eb2f759895a154b3a412ee9b304a930f3f50ef95029e",
+    "redstone_power_level_08.png": "cc2f7d513757be26f09558a821a78e8dacd469cebff7e9d9383427b9a44333f7",
+    "redstone_power_level_09.png": "d6522473170a942b3252ee7053daea9d5077f1939520adfcc5014a6b02ce2968",
+    "redstone_power_level_10.png": "3a2b6ef52812895ef70241d0a7a19218043f7dcc383a26cb5dd951b4c35c8bb8",
+    "redstone_power_level_11.png": "b80933a4253a877f3daac72a3a2427f6826197a4aea99d13b437d67c9fe65bdd",
+    "redstone_power_level_12.png": "99f8a26cefa7af27e4f8fa9c87a4cc16b4a8f8391a9e9a1d467357352e886405",
+    "redstone_power_level_13.png": "a6164ac211c5379f8bf663f1b965ba2ccfeeb50afcba7f0f92aa85e76f793d6b",
+    "redstone_power_level_14.png": "0f9b0d16f8c5557359dce3fc67ed5633ee47d07164ce932e87ef981c0a8282e7",
+    "redstone_power_level_15.png": "a62d2144d398cfba8b6b10551b3bd86c9cd9eb6e165faa1ddc0a5e4948aa4c81"
+  }
+}

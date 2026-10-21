@@ -1,0 +1,4 @@
+Vanilla Tweaks: https://vanillatweaks.net/
+Redstone Tweaks by RexxStone: https://modrinth.com/resourcepack/redstone-tweaks/
+TQNL: standalone client-side number renderer and integration.
+See ASSET-LICENSES.md for the artwork terms and modifications.
