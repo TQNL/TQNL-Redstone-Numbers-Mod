@@ -77,7 +77,8 @@ public final class WireIndex {
         }
 
         double rangeSquared = (double) range * range;
-        PriorityQueue<Candidate> nearest = new PriorityQueue<>(NEAREST_FIRST.reversed());
+        List<Candidate> eligible = new ArrayList<>(Math.min(maxLabels, 256));
+        PriorityQueue<Candidate> nearest = null;
         for (IndexedSection section : sections.values()) {
             LongIterator positions = section.wires.iterator();
             while (positions.hasNext()) {
@@ -103,17 +104,28 @@ public final class WireIndex {
                 }
                 Candidate candidate = new Candidate(packed, distanceSquared,
                         state.getValue(RedStoneWireBlock.POWER));
-                if (nearest.size() < maxLabels) {
-                    nearest.add(candidate);
-                } else if (NEAREST_FIRST.compare(candidate, nearest.peek()) < 0) {
+                if (nearest == null && eligible.size() < maxLabels) {
+                    eligible.add(candidate);
+                    continue;
+                }
+                if (nearest == null) {
+                    // Most scenes fit the cap: avoid a heap and sorting altogether until overflow.
+                    nearest = new PriorityQueue<>(NEAREST_FIRST.reversed());
+                    nearest.addAll(eligible);
+                    eligible.clear();
+                }
+                if (NEAREST_FIRST.compare(candidate, nearest.peek()) < 0) {
                     nearest.poll();
                     nearest.add(candidate);
                 }
             }
         }
 
-        List<Candidate> ordered = new ArrayList<>(nearest);
-        ordered.sort(NEAREST_FIRST);
+        List<Candidate> ordered = eligible;
+        if (nearest != null) {
+            ordered = new ArrayList<>(nearest);
+            ordered.sort(NEAREST_FIRST);
+        }
         List<Label> labels = new ArrayList<>(ordered.size());
         for (Candidate candidate : ordered) {
             BlockPos position = BlockPos.of(candidate.position);

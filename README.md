@@ -52,13 +52,16 @@ Use JDK 25 to run the pinned Gradle build; output targets Java 21:
 
 ```sh
 ./gradlew build
+python tools/package_cosmetic.py
 python tools/audit-release.py
 ```
 
-The mod JAR is in `build/libs`. Python 3 and Pillow are needed only for artwork
-repacking and the release audit. `tools/build-assets.py --source <legacy-repo>`
-reproduces the private font and optional cosmetic ZIP from the recorded legacy
-artwork. Committed font assets allow ordinary Java builds without that repository.
+The mod JAR is in `build/libs`; the optional cosmetic ZIP is in `outputs`.
+The cosmetic packer needs only Python 3's standard library. Pillow is needed for
+the release audit and legacy artwork repacking. Committed font and dust assets
+make ordinary builds independent of the legacy repository.
+`tools/build-assets.py --source <legacy-repo>` reproduces those artwork inputs
+and invokes the same cosmetic packer.
 
 ## Implementation and evidence
 
@@ -66,9 +69,10 @@ The mod keeps a nearby wire-position index, observes successful client block
 changes, extracts immutable label data, and submits native text. It introduces
 no artificial entities, server packets, terrain rebuilds or custom GPU pipelines.
 
-Live verification is in progress. See `notes.md` for the current milestone and
-`docs/verification.md` once the reviewed results are recorded. Source compilation
-alone is not a renderer-compatibility or performance claim.
+Live Minecraft tests cover minimal Fabric, the copied 66-mod environment, and
+Iris with BSL. See [verification and limits](docs/verification.md) for the exact
+versions, screenshots, performance measurements and remaining qualifications.
+Project decisions and the current milestone are maintained in [notes.md](notes.md).
 
 Code is MIT; reused artwork has separate terms in [ASSET-LICENSES.md](ASSET-LICENSES.md).
 Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.

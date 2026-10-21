@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "minecraft": "1.21.11",
+  "artifact": {
+    "filename": "redstone-numbers-0.1.0+mc1.21.11.jar",
+    "sha256": "cb5950cec4914d910b405f80e884d02fbe7f5070f91f32844df1e41376a12cb8"
+  },
+  "method": {
+    "renderer": "Minecraft normal renderer with Fabric Loader and Fabric API",
+    "fixture": "1024 actual power-0 wire blocks in a fixed overhead view",
+    "range_blocks": 32,
+    "label_limit": 8192,
+    "scale": 1,
+    "native_recording": "F3+L, nominal 10 seconds per capture",
+    "native_metric": "client ticktime",
+    "native_units": "nanoseconds",
+    "reported_units": "milliseconds per client rendering loop",
+    "frame_limit": "unlimited",
+    "vsync": false,
+    "comparison": "same installed mod, enabled versus disabled, three alternating OFF/ON pairs",
+    "limitations": "Includes native profiler overhead and display/scheduling effects; not isolated GPU timing or a confidence interval."
+  },
+  "dense": {
+    "captures": [
+      {
+        "pair": 1,
+        "condition": "off",
+        "capture_sha256": "8d298f3b0f14a96fa85549f03301c17fbdacdc712d6477f46c2fcca7c125905e",
+        "metric_csv_sha256": "50a0c9ce5e6d1f40fc7646ca6142ea48f874d5dfc92acd1c39be5c40edaad14d",
+        "samples": 1413,
+        "metrics_ms": {
+          "mean": 6.981146993630573,
+          "median": 6.6158,
+          "p95": 10.18712,
+          "p99": 12.883816000000003,
+          "min": 4.1278,
+          "max": 24.2957
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 1.04,
+          "renderFeatures_total_profile_share_percent": 0.12,
+          "updateDisplay_total_profile_share_percent": 24.48
+        }
+      },
+      {
+        "pair": 1,
+        "condition": "on",
+        "capture_sha256": "4e0d356ebaaf583e8b7ec3b08f95ed387bf09076ef88bcc5dd811696ba10671f",
+        "metric_csv_sha256": "9f070722e92efbd46c25b7a06414d9d6c8e66c3a1e0b08af035e5d29dafdb2d6",
+        "samples": 1435,
+        "metrics_ms": {
+          "mean": 6.907777560975609,
+          "median": 6.5941,
+          "p95": 9.873899999999999,
+          "p99": 12.58429434000001,
+          "min": 4.4461,
+          "max": 19.4827
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 3.1,
+          "renderFeatures_total_profile_share_percent": 2.81,
+          "updateDisplay_total_profile_share_percent": 24.08
+        }
+      },
+      {
+        "pair": 2,
+        "condition": "off",
+        "capture_sha256": "ac28deb41478ac82313aadc613a2741aa71e00c40ebd426e83d624a344320eed",
+        "metric_csv_sha256": "b3813c8a623104d4c0a1d1506e267a4d66892e29b81686c93e5e97cb3920d196",
+        "samples": 1551,
+        "metrics_ms": {
+          "mean": 6.387981560283689,
+          "median": 6.1295,
+          "p95": 8.99605,
+          "p99": 11.2401,
+          "min": 3.9099,
+          "max": 21.4749
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.53,
+          "renderFeatures_total_profile_share_percent": 0.08,
+          "updateDisplay_total_profile_share_percent": 26.55
+        }
+      },
+      {
+        "pair": 2,
+        "condition": "on",
+        "capture_sha256": "4de29a0a33d6b53b01fabe1765b9e6bddf46c117e25f971e44c858c81b8bbc34",
+        "metric_csv_sha256": "269da60f2bc109fccf18b874e7d3213fc7742fe3e71746626c5a89d82d007cae",
+        "samples": 1569,
+        "metrics_ms": {
+          "mean": 6.329442571701721,
+          "median": 6.0245,
+          "p95": 8.8102206,
+          "p99": 11.196155999999997,
+          "min": 3.7863,
+          "max": 18.7479
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 3.11,
+          "renderFeatures_total_profile_share_percent": 2.54,
+          "updateDisplay_total_profile_share_percent": 24.41
+        }
+      },
+      {
+        "pair": 3,
+        "condition": "off",
+        "capture_sha256": "4063a374fa9704ef2bf8258d1ce9560e85a156357a0d4f6ecfdb560c3dfa2999",
+        "metric_csv_sha256": "96a40719898e77d04280d1a555d9ebe280a19d4b81ffbcd7186b66ece2dcd8be",
+        "samples": 1607,
+        "metrics_ms": {
+          "mean": 6.176038021157436,
+          "median": 5.8844,
+          "p95": 8.82812,
+          "p99": 11.397948000000001,
+          "min": 3.638,
+          "max": 21.4162
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.53,
+          "renderFeatures_total_profile_share_percent": 0.07,
+          "updateDisplay_total_profile_share_percent": 26.76
+        }
+      },
+      {
+        "pair": 3,
+        "condition": "on",
+        "capture_sha256": "d3ce0d432eb65e1bb883e24d3c07e1380c2c76a1800d434e8a1bb8bcee203949",
+        "metric_csv_sha256": "50c46d589fd810b1be234479bbf4b24de85c4c33029eda130479a1c7993a3e83",
+        "samples": 1511,
+        "metrics_ms": {
+          "mean": 6.57408332230311,
+          "median": 6.2677,
+          "p95": 9.4129,
+          "p99": 12.016280000000034,
+          "min": 4.1553,
+          "max": 22.708
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 3.09,
+          "renderFeatures_total_profile_share_percent": 2.62,
+          "updateDisplay_total_profile_share_percent": 25.46
+        }
+      }
+    ],
+    "summary_by_condition": {
+      "off": {
+        "captures": 3,
+        "samples": 4571,
+        "capture_medians_ms": [
+          6.6158,
+          6.1295,
+          5.8844
+        ],
+        "median_of_capture_medians_ms": 6.1295,
+        "mean_of_capture_medians_ms": 6.2099,
+        "mean_of_capture_means_ms": 6.515055525023899,
+        "pooled_mean_ms": 6.496830715817108,
+        "capture_median_range_percent": 11.93245778611632
+      },
+      "on": {
+        "captures": 3,
+        "samples": 4515,
+        "capture_medians_ms": [
+          6.5941,
+          6.0245,
+          6.2677
+        ],
+        "median_of_capture_medians_ms": 6.2677,
+        "mean_of_capture_medians_ms": 6.2954333333333325,
+        "mean_of_capture_means_ms": 6.603767818326813,
+        "pooled_mean_ms": 6.595126488372093,
+        "capture_median_range_percent": 9.087863171498324
+      }
+    },
+    "comparison": {
+      "median_delta_percent_on_vs_off": 2.2546700383391682,
+      "mean_of_capture_medians_delta_percent_on_vs_off": 1.377370542735501,
+      "pooled_mean_delta_percent_on_vs_off": 1.5129803569558176,
+      "paired_median_deltas_percent": [
+        -0.3280026602980768,
+        -1.713027163716463,
+        6.513833186051232
+      ],
+      "maximum_within_condition_median_range_percent": 11.93245778611632,
+      "target_percent": 5,
+      "point_estimate_below_target": true,
+      "demonstrated_upper_bound_below_target": false,
+      "interpretation": "Three-pair descriptive estimate only. Run-to-run variation exceeds the aggregate median difference; these captures do not establish a repeatable overhead bound below 5 percent."
+    }
+  },
+  "exploratory_before_optimization": {
+    "included_in_current_artifact_summary": false,
+    "captures": [
+      {
+        "condition": "on",
+        "capture_sha256": "e68a6235e0e2985633346cb44abee9d953f539db018162ea8f505608b8193c33",
+        "metric_csv_sha256": "d316b7d4b4ba7ddf77e180c549a8fa1512baec048144724462e03fd8d602965b",
+        "samples": 1383,
+        "metrics_ms": {
+          "mean": 7.164544902386117,
+          "median": 6.6768,
+          "p95": 10.00962,
+          "p99": 12.395392000000033,
+          "min": 4.4614,
+          "max": 21.6419
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 7.76,
+          "renderFeatures_total_profile_share_percent": 2.47,
+          "updateDisplay_total_profile_share_percent": 19.59
+        }
+      },
+      {
+        "condition": "off",
+        "capture_sha256": "0f4076395c4957ce0675ad1d7632a48163172bc48bb87275562d27772a654b43",
+        "metric_csv_sha256": "2a44de22b590f48100fbdb3cfce63866c65e3808578a2441175592a7290a1a77",
+        "samples": 1643,
+        "metrics_ms": {
+          "mean": 6.035507362751065,
+          "median": 5.6076,
+          "p95": 8.592629900000004,
+          "p99": 10.837327579999998,
+          "min": 4.1092,
+          "max": 13.9197
+        },
+        "profile_section_shares": {
+          "extract_total_profile_share_percent": 0.56,
+          "renderFeatures_total_profile_share_percent": 0.06,
+          "updateDisplay_total_profile_share_percent": 22.72
+        }
+      }
+    ],
+    "interpretation": "The earlier build used a nearest-candidate heap and sort even below the cap. Extraction profile share falls from 7.76 percent in its enabled capture to 3.09 percent in the last optimized enabled capture; ordinary feature rendering remains near 2.5 percent. This is consistent with the targeted extraction improvement, without proving causality across separate recordings."
+  },
+  "privacy": "Only sanitized fixture/method details, numeric summaries and content hashes are included. Raw profiling archives, paths, system reports, options and raw samples are excluded."
+}
