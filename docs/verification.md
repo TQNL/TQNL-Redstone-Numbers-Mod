@@ -1,4 +1,8 @@
-# Minecraft 1.21.11 verification
+# Minecraft 1.21.11 verification: 0.1.0
+
+This records the original0.1.0 milestone. See the [0.1.1 update](update-0.1.1.md)
+for the later appearance/settings changes and brief controlled profiles. The
+full earlier renderer matrix was not repeated for that small update.
 
 Tests were performed on 21 October 2026 in isolated, newly generated worlds.
 Only the production mod JAR was loaded; no test entry point or renderer shim is

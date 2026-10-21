@@ -2,9 +2,43 @@
 
 ## Objective and scope
 
-Implement Minecraft Java 1.21.11 only, test through Computer Use, publish a new
-Git repository without personal information, and stop. No later version started.
+Continue Minecraft Java 1.21.11 only: match the old shader labels' appearance,
+add accessible settings with lighter defaults, and make measured optimizations
+using brief tests. Preserve the released0.1.0 and publish the reviewed update.
+No later version started.
 Original resource-pack project and installed Minecraft content are preserved.
+
+## Current update checkpoint
+
+- User reopened work for shader-like appearance, Mod Menu or Sodium settings,
+  lower defaults, and short profiling with measured optimization improvements.
+- Source comparison: original glyphs,0.25-block cell and local light already
+  match. Excess hover comes from using collision height instead of the actual
+  dust plane. Lower native lift uses visible12px ink height; no shader/depth trick.
+- Planned0.1.1 defaults16-block range/1024 nearest labels; retain existing saved
+  user choices. Native settings screen through optional Mod Menu, no Cloth Config.
+- Index edits remove empty allocations/iterators, redundant selected state reads,
+  and allocations for losing overflow candidates. Frozen0.1.0 JAR in
+  work/qa/baselines. Controlled0.1.1 reference/candidate JARs differ only in
+  WireIndex classes, verified by decompressed-member comparison.
+- Brief profiles complete: one10s dense and one10s empty per build, fixed32/1024.
+  Dense median5.6173 to5.5426ms; empty3.34845 to3.3004ms, but empty mean slightly
+  worsens. Small samples, no strong overall FPS claim. CPU profile review pending.
+- Minimal Java21 starts without Mod Menu. Actual copied Sodium setup is now
+  verified: Mod Menu opens the native form, fresh defaults16/1024 load, and the
+  lowered labels display. Minimal F8 shortcut opens it without Mod Menu; Done
+  persisted an8-block edit. Runtime cancellation was interrupted by the session
+  cap; Cancel/Reset/validation are independently reviewed, not claimed live passes.
+- Native dense extraction estimate0.19663 to0.15921ms/frame (-19.03%); text cost
+  staysabout0.15ms. Empty results mixed. docs/performance-0.1.1.json contains
+  sanitized hashes/statistics; docs/update-0.1.1.md records the exact scope.
+- Full build and source/privacy audit pass (69publicfiles/47archive members at
+  last check); no unit tests. CandidateJAR SHA256:
+  dfdce77ccfadfa4466f52fbfb25ad2c7564f548b2ca46f779e8b3bc6910af4c2.
+- Current preservation check:4560 files unchanged, none missing. All owned QA
+  clients stopped; no further performance or runtime tests planned.
+- Pending only final commit/push and0.1.1 prerelease upload/download hash readback.
+- Older results below document the released0.1.0, not the pending update.
 
 ## Architecture
 
@@ -15,8 +49,9 @@ Original resource-pack project and installed Minecraft content are preserved.
   entities, server packets or renderer-specific adapters.
 - Nearby loaded-section index, bounded discovery, one observational block-state
   mixin, immutable extracted frames. Current power/light read during extraction.
-- Defaults: enabled, range32 blocks, nearest8192 labels, scale1. Config JSON and
-  initially unbound Controls toggle. F1 retains labels.
+- Fresh defaults: enabled, range16 blocks, nearest1024 labels, scale1. Existing
+  saved choices retained. Native Mod Menu settings, optional API compile-only,
+  initially unbound settings and toggle keys. F1 retains labels.
 - Below the label cap, skip heap maintenance and sorting. Overflow retains
   bounded nearest selection with deterministic distance/position ties.
 - Independent optional dust-only pack with exactly three textures and licenses.
@@ -24,7 +59,7 @@ Original resource-pack project and installed Minecraft content are preserved.
 ## Relevant files
 
 - src/client/java/dev/tqnl/redstonenumbers/: entrypoint, ModConfig, WireIndex,
-  NumberRenderer and the observational chunk mixin.
+  NumberRenderer, SettingsScreen, ModMenuIntegration and observational chunk mixin.
 - src/main/resources/assets/redstonenumbers/: namespaced font and 16 glyphs.
 - cosmetic/textures/: three original dust textures; tools/package_cosmetic.py
   packages them using only Python standard library.
@@ -36,7 +71,7 @@ Original resource-pack project and installed Minecraft content are preserved.
 - work/qa/: ignored private fixtures, native logs/profiles, preservation hashes
   and owned-process records. Never publish raw runtime/profiler files.
 
-## Completed verification
+## Completed verification: original0.1.0 milestone
 
 - Gradle9.6.1/Loom1.17.21, JDK25 build targeting Java21 passes. Fabric Loader
   0.19.5 and API0.141.6+1.21.11 pinned; Minecraft dependency exactly1.21.11.
@@ -62,7 +97,7 @@ Original resource-pack project and installed Minecraft content are preserved.
 - JAR SHA256 cb5950cec4914d910b405f80e884d02fbe7f5070f91f32844df1e41376a12cb8.
 - Cosmetic SHA256 75546380593908c9f96b6ec525cd61713f04194a456dfb66d5d9464d5377ed68.
 
-## Performance and limits
+## Performance and limits: original0.1.0 milestone
 
 - Dense1024-wire fixed camera: three OFF/ON pairs, +2.25% median aggregate,
   +1.51% pooled mean. Within-condition variation11.93%; paired deltas reach6.51%.
@@ -76,7 +111,7 @@ Original resource-pack project and installed Minecraft content are preserved.
   remain. Sub-tick server changes not received by client cannot be displayed.
 - VoxySeedGen warns on synthetic flatworld; this is not a distantLOD test pass.
 
-## Preservation, publication and remaining steps
+## Original0.1.0 preservation and publication
 
 - Final hash comparison: all4560 inventoried installed files unchanged, none
   missing. Every owned QA client stopped; original client remains open.

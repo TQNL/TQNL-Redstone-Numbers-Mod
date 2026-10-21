@@ -46,7 +46,7 @@ def audit_archive(path):
     return members
 
 def main():
-    jar = ROOT / 'build/libs/redstone-numbers-0.1.0+mc1.21.11.jar'
+    jar = ROOT / 'build/libs/redstone-numbers-0.1.1+mc1.21.11.jar'
     require(jar.is_file(), 'Build the release JAR first.')
     with zipfile.ZipFile(jar) as archive:
         names = archive.namelist()

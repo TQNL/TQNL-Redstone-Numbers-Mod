@@ -27,8 +27,10 @@ public final class NumberRenderer {
             Identifier.fromNamespaceAndPath("redstonenumbers", "numbers"))).withoutShadow();
     private static final float GLYPH_HEIGHT = 16.0F;
     private static final float BLOCK_SIZE = 0.25F;
-    // Wire geometry is one pixel high. Keep the physical billboard above it without depth tricks.
-    private static final double SURFACE_CLEARANCE = 1.0 / 16.0 + 0.015;
+    private static final float VISIBLE_GLYPH_HEIGHT = 12.0F;
+    // The old shader used Y=0.251/16, just above the dust mesh at Y=0.25/16.
+    // Use that anchor with a small physical clearance, rather than the wire's collision height.
+    private static final double SURFACE_CLEARANCE = 0.251 / 16.0 + 1.0 / 512.0;
     private List<Glyph> glyphs;
 
     public void invalidateFont() {
@@ -57,8 +59,11 @@ public final class NumberRenderer {
         Vector3f up = new Vector3f(0, 1, 0).rotate(orientation);
         Vector3f right = new Vector3f(1, 0, 0).rotate(orientation);
         float units = BLOCK_SIZE * config.scale / GLYPH_HEIGHT;
-        // Also handles camera roll supplied by another mod, without consulting the live camera while drawing.
-        double lift = SURFACE_CLEARANCE + BLOCK_SIZE * config.scale * 0.5 * (Math.abs(up.y) + Math.abs(right.y));
+        // The artwork's first/last two rows are transparent. Lift only the visible ink
+        // above the dust; counting those margins made the labels appear to hover.
+        // The width term also handles camera roll supplied by another mod.
+        double lift = SURFACE_CLEARANCE + units * 0.5
+                * (VISIBLE_GLYPH_HEIGHT * Math.abs(up.y) + GLYPH_HEIGHT * Math.abs(right.y));
         state.setData(FRAME, new Frame(List.copyOf(labels), glyphs, camera.pos,
                 orientation.x, orientation.y, orientation.z, orientation.w, units, lift));
     }

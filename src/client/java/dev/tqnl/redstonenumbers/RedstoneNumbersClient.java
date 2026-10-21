@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.packs.PackType;
@@ -22,16 +23,21 @@ import org.slf4j.LoggerFactory;
 
 public final class RedstoneNumbersClient implements ClientModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger("redstonenumbers");
+    private static ModConfig config;
+    private static Path configPath;
     private final NumberRenderer renderer = new NumberRenderer();
     private ClientLevel previousLevel;
 
     @Override
     public void onInitializeClient() {
-        Path configPath = FabricLoader.getInstance().getConfigDir().resolve("redstonenumbers.json");
-        ModConfig config = ModConfig.load(configPath);
+        configPath = FabricLoader.getInstance().getConfigDir().resolve("redstonenumbers.json");
+        config = ModConfig.load(configPath);
+        KeyMapping.Category category = KeyMapping.Category.register(
+                Identifier.fromNamespaceAndPath("redstonenumbers", "controls"));
         KeyMapping toggle = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.toggle",
-                InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(),
-                KeyMapping.Category.register(Identifier.fromNamespaceAndPath("redstonenumbers", "controls"))));
+                InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
+        KeyMapping settings = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.settings",
+                InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
 
         ClientChunkEvents.CHUNK_LOAD.register(WireIndex.INSTANCE::onChunkLoad);
         ClientChunkEvents.CHUNK_UNLOAD.register(WireIndex.INSTANCE::onChunkUnload);
@@ -47,6 +53,9 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                     client.player.displayClientMessage(Component.translatable(config.enabled
                             ? "message.redstonenumbers.enabled" : "message.redstonenumbers.disabled"), true);
                 }
+            }
+            while (settings.consumeClick()) {
+                client.setScreen(createSettingsScreen(client.screen));
             }
             if (client.level != previousLevel) {
                 WireIndex.INSTANCE.reset();
@@ -65,5 +74,9 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
         WorldRenderEvents.END_EXTRACTION.register(context -> renderer.extract(context, config));
         WorldRenderEvents.BEFORE_ENTITIES.register(renderer::submit);
         LOGGER.info("Redstone Numbers ready: ordinary world text, range {}, limit {}", config.range, config.maxLabels);
+    }
+
+    public static Screen createSettingsScreen(Screen parent) {
+        return new SettingsScreen(parent, config, configPath);
     }
 }

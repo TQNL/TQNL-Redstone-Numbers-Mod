@@ -1,6 +1,21 @@
 {
   "key.category.redstonenumbers.controls": "Redstone Numbers",
   "key.redstonenumbers.toggle": "Toggle redstone numbers",
+  "key.redstonenumbers.settings": "Open redstone number settings",
   "message.redstonenumbers.enabled": "Redstone numbers enabled",
-  "message.redstonenumbers.disabled": "Redstone numbers disabled"
+  "message.redstonenumbers.disabled": "Redstone numbers disabled",
+  "screen.redstonenumbers.title": "Redstone Numbers",
+  "screen.redstonenumbers.enabled": "Show numbers",
+  "screen.redstonenumbers.enabled.help": "Display power levels on nearby redstone wire.",
+  "screen.redstonenumbers.range": "Draw distance (blocks)",
+  "screen.redstonenumbers.range.help": "1–128 blocks. Default: 16. A smaller range reduces nearby wire scanning.",
+  "screen.redstonenumbers.limit": "Maximum labels",
+  "screen.redstonenumbers.limit.help": "1–65536 labels. Default: 1024. When the limit is reached, the nearest labels are shown. Lower limits help busy circuits stay responsive.",
+  "screen.redstonenumbers.scale": "Number size",
+  "screen.redstonenumbers.scale.help": "0.25–4. Default: 1.0, matching the original number size.",
+  "screen.redstonenumbers.reset": "Reset",
+  "screen.redstonenumbers.reset.help": "Preview default settings. Choose Done to save them, or Cancel to restore your previous settings.",
+  "screen.redstonenumbers.preview": "Changes preview immediately. Done saves; Cancel restores.",
+  "screen.redstonenumbers.invalid": "Use distance 1–128, labels 1–65536 and size 0.25–4.",
+  "screen.redstonenumbers.save_error": "Could not save settings. Your changes are still being previewed."
 }

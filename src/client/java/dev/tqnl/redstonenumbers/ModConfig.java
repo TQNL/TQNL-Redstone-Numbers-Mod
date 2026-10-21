@@ -8,13 +8,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/** The small user-editable configuration, loaded once when the client starts. */
+/** Shared client settings, previewed live and persisted only when accepted. */
 public final class ModConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public boolean enabled = true;
-    public int range = 32;
-    public int maxLabels = 8192;
+    public int range = 16;
+    public int maxLabels = 1024;
     public float scale = 1.0F;
 
     public static ModConfig load(Path path) {
@@ -42,13 +42,29 @@ public final class ModConfig {
         scale = Float.isFinite(scale) ? Math.clamp(scale, 0.25F, 4.0F) : 1.0F;
     }
 
-    public void save(Path path) {
+    public ModConfig copy() {
+        ModConfig copy = new ModConfig();
+        copy.copyFrom(this);
+        return copy;
+    }
+
+    public void copyFrom(ModConfig other) {
+        enabled = other.enabled;
+        range = other.range;
+        maxLabels = other.maxLabels;
+        scale = other.scale;
+        sanitize();
+    }
+
+    public boolean save(Path path) {
         sanitize();
         try {
             Files.createDirectories(path.getParent());
             Files.writeString(path, GSON.toJson(this) + "\n", StandardCharsets.UTF_8);
+            return true;
         } catch (IOException exception) {
             RedstoneNumbersClient.LOGGER.warn("Cannot save redstonenumbers.json", exception);
+            return false;
         }
     }
 }

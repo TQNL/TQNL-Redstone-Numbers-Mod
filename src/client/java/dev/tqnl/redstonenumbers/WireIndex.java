@@ -30,7 +30,7 @@ public final class WireIndex {
     private static final long SCAN_BUDGET_NANOS = 1_000_000L;
     private static final Comparator<Candidate> NEAREST_FIRST = Comparator
             .comparingDouble(Candidate::distanceSquared)
-            .thenComparingLong(Candidate::position);
+            .thenComparingLong(candidate -> candidate.position.asLong());
 
     private final Long2ObjectOpenHashMap<IndexedSection> sections = new Long2ObjectOpenHashMap<>();
     private final PriorityQueue<IndexedSection> pending = new PriorityQueue<>(Comparator
@@ -77,9 +77,12 @@ public final class WireIndex {
         }
 
         double rangeSquared = (double) range * range;
-        List<Candidate> eligible = new ArrayList<>(Math.min(maxLabels, 256));
+        List<Candidate> eligible = null;
         PriorityQueue<Candidate> nearest = null;
         for (IndexedSection section : sections.values()) {
+            if (section.wires.isEmpty()) {
+                continue;
+            }
             LongIterator positions = section.wires.iterator();
             while (positions.hasNext()) {
                 long packed = positions.nextLong();
@@ -102,8 +105,18 @@ public final class WireIndex {
                     positions.remove();
                     continue;
                 }
-                Candidate candidate = new Candidate(packed, distanceSquared,
-                        state.getValue(RedStoneWireBlock.POWER));
+                if (nearest != null) {
+                    Candidate farthest = nearest.peek();
+                    int distanceOrder = Double.compare(distanceSquared, farthest.distanceSquared);
+                    if (distanceOrder > 0 || (distanceOrder == 0 && packed >= farthest.position.asLong())) {
+                        continue;
+                    }
+                }
+                if (eligible == null) {
+                    eligible = new ArrayList<>(Math.min(maxLabels, 256));
+                }
+                Candidate candidate = new Candidate(position, distanceSquared,
+                        state.getValue(RedStoneWireBlock.POWER), state);
                 if (nearest == null && eligible.size() < maxLabels) {
                     eligible.add(candidate);
                     continue;
@@ -121,6 +134,9 @@ public final class WireIndex {
             }
         }
 
+        if (eligible == null) {
+            return List.of();
+        }
         List<Candidate> ordered = eligible;
         if (nearest != null) {
             ordered = new ArrayList<>(nearest);
@@ -128,8 +144,8 @@ public final class WireIndex {
         }
         List<Label> labels = new ArrayList<>(ordered.size());
         for (Candidate candidate : ordered) {
-            BlockPos position = BlockPos.of(candidate.position);
-            labels.add(new Label(position, candidate.power, LevelRenderer.getLightColor(level, position)));
+            labels.add(new Label(candidate.position, candidate.power, LevelRenderer.getLightColor(
+                    LevelRenderer.BrightnessGetter.DEFAULT, level, candidate.state, candidate.position)));
         }
         return List.copyOf(labels);
     }
@@ -264,7 +280,7 @@ public final class WireIndex {
 
     public record Label(BlockPos position, int power, int packedLight) {}
 
-    private record Candidate(long position, double distanceSquared, int power) {}
+    private record Candidate(BlockPos position, double distanceSquared, int power, BlockState state) {}
 
     private record Bounds(int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
         private static Bounds around(ClientLevel level, Vec3 position, int range) {

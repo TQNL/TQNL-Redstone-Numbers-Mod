@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "minecraft": "1.21.11",
+  "mod_version": "0.1.1",
+  "comparison_artifacts": {
+    "reference": {
+      "sha256": "07546411aea7b575f5ed2e9a87b81935c589dd4a897229e8023df944072a8ab8",
+      "description": "0.1.1 rendering and settings with the previous WireIndex implementation"
+    },
+    "candidate": {
+      "sha256": "dfdce77ccfadfa4466f52fbfb25ad2c7564f548b2ca46f779e8b3bc6910af4c2",
+      "description": "0.1.1 rendering and settings with the allocation and duplicate-lookup optimization"
+    },
+    "verified_identical_member_sets": true,
+    "verified_different_members": [
+      "dev/tqnl/redstonenumbers/WireIndex$Bounds.class",
+      "dev/tqnl/redstonenumbers/WireIndex$Candidate.class",
+      "dev/tqnl/redstonenumbers/WireIndex$IndexedSection.class",
+      "dev/tqnl/redstonenumbers/WireIndex$Label.class",
+      "dev/tqnl/redstonenumbers/WireIndex.class"
+    ],
+    "all_other_decompressed_members_identical": true
+  },
+  "method": {
+    "renderer": "Minecraft normal renderer with Fabric Loader and Fabric API",
+    "runtime_java_major": 21,
+    "native_recording": "F3+L, one nominal 10-second recording per fixture and artifact",
+    "comparison": "Same disposable world, fixed fixture camera, viewport, rendering/settings classes, and explicit range/limit settings; labels enabled for both artifacts.",
+    "range_blocks": 32,
+    "label_limit": 1024,
+    "scale": 1,
+    "frame_limit": "unlimited",
+    "vsync": false,
+    "release_default_range_blocks": 16,
+    "benchmark_uses_release_default_range": false,
+    "fixtures": {
+      "dense": "1024 actual power-0 wire blocks in a fixed overhead view",
+      "empty": "Fixed camera outside wire fixtures; no nearby wire labels"
+    },
+    "native_metric": "client ticktime",
+    "native_units": "nanoseconds",
+    "reported_units": "milliseconds per client rendering loop",
+    "approximate_section_time_formula": "profile Time span in ms / profile Tick span * rounded total-profile section share / 100",
+    "limitations": "One short recording per fixture and artifact. Native profiling adds overhead; frame-loop timings include display, GPU waiting, scheduling and JVM effects. Section percentages are rounded, and derived section times are approximate wall-time estimates rather than isolated CPU self-time. This does not demonstrate a repeatable FPS gain or an overhead bound."
+  },
+  "results": {
+    "dense": {
+      "reference": {
+        "capture_sha256": "0dcc14df754d7859b3dcbce1a0ef22f153cab798deb73d27e2a2dee6222a0c1f",
+        "metric_csv_sha256": "afc4a3d7687dbb8bc45a04684ae015d0d88a447ca869a0dc916eace06a0bdc7f",
+        "samples": 1643,
+        "profile_time_span_ms": 10002,
+        "metrics_ms": {
+          "mean": 6.013912051125989,
+          "median": 5.6173,
+          "p95": 8.60875,
+          "p99": 11.190091999999998,
+          "min": 3.5002,
+          "max": 25.2842
+        },
+        "profile_sections": {
+          "extract": {
+            "total_profile_share_percent": 3.23,
+            "approximate_ms_per_frame": 0.19663091905051736
+          },
+          "renderFeatures": {
+            "total_profile_share_percent": 2.47,
+            "approximate_ms_per_frame": 0.15036482045039565
+          },
+          "updateDisplay": {
+            "total_profile_share_percent": 22.92,
+            "approximate_ms_per_frame": 1.3952881314668293
+          }
+        }
+      },
+      "candidate": {
+        "capture_sha256": "7f0d9dbe57e3b2a258a9d0d0e10081870c75c25ca6c258d07fa66ed140367c8b",
+        "metric_csv_sha256": "e80acdbb8df6c7d356144476155219b02a2c7a4ce330bc1edd7d16fb5d2635ba",
+        "samples": 1677,
+        "profile_time_span_ms": 10000,
+        "metrics_ms": {
+          "mean": 5.898974537865235,
+          "median": 5.5426,
+          "p95": 8.615960000000001,
+          "p99": 11.177792,
+          "min": 3.4292,
+          "max": 21.2474
+        },
+        "profile_sections": {
+          "extract": {
+            "total_profile_share_percent": 2.67,
+            "approximate_ms_per_frame": 0.15921288014311272
+          },
+          "renderFeatures": {
+            "total_profile_share_percent": 2.49,
+            "approximate_ms_per_frame": 0.14847942754919502
+          },
+          "updateDisplay": {
+            "total_profile_share_percent": 24.2,
+            "approximate_ms_per_frame": 1.4430530709600478
+          }
+        }
+      },
+      "comparison": {
+        "median_frame_time_delta_percent": -1.3298203763373873,
+        "mean_frame_time_delta_percent": -1.9111937834081605,
+        "p95_frame_time_delta_percent": 0.08375199651518006,
+        "p99_frame_time_delta_percent": -0.10991866733534028,
+        "approximate_extraction_time_delta_percent": -19.02958043835995,
+        "captures_per_variant": 1,
+        "statistical_speedup_established": false,
+        "repeatable_five_percent_overhead_bound_established": false
+      }
+    },
+    "empty": {
+      "reference": {
+        "capture_sha256": "aa36052e71c80a23ae21de62089c7a938fd6bb40fdb9931e793f10c0764bd9e1",
+        "metric_csv_sha256": "24cc67140bc0c8f977295d5be7802a9698da56b577847488e5dccca2297b2396",
+        "samples": 2702,
+        "profile_time_span_ms": 10001,
+        "metrics_ms": {
+          "mean": 3.6629052553663954,
+          "median": 3.3484499999999997,
+          "p95": 5.70951,
+          "p99": 7.888110999999972,
+          "min": 2.0111,
+          "max": 12.966
+        },
+        "profile_sections": {
+          "extract": {
+            "total_profile_share_percent": 0.63,
+            "approximate_ms_per_frame": 0.023318393782383418
+          },
+          "renderFeatures": {
+            "total_profile_share_percent": 0.06,
+            "approximate_ms_per_frame": 0.00222079940784604
+          },
+          "updateDisplay": {
+            "total_profile_share_percent": 31.53,
+            "approximate_ms_per_frame": 1.167030088823094
+          }
+        }
+      },
+      "candidate": {
+        "capture_sha256": "c3c99cae53fb4d483a18de94b4ba7ffbec5304b4f54e91682d6543157693e09c",
+        "metric_csv_sha256": "7636601ed0a03ad041a2a737b509248a50df3327b260142191994a88b65951e7",
+        "samples": 2691,
+        "profile_time_span_ms": 10002,
+        "metrics_ms": {
+          "mean": 3.6765604607952436,
+          "median": 3.3004,
+          "p95": 5.94245,
+          "p99": 8.769049999999986,
+          "min": 2.0416,
+          "max": 15.877
+        },
+        "profile_sections": {
+          "extract": {
+            "total_profile_share_percent": 0.61,
+            "approximate_ms_per_frame": 0.0226726867335563
+          },
+          "renderFeatures": {
+            "total_profile_share_percent": 0.07,
+            "approximate_ms_per_frame": 0.0026017837235228543
+          },
+          "updateDisplay": {
+            "total_profile_share_percent": 31.45,
+            "approximate_ms_per_frame": 1.1689442586399108
+          }
+        }
+      },
+      "comparison": {
+        "median_frame_time_delta_percent": -1.4349923098747164,
+        "mean_frame_time_delta_percent": 0.3727971235085059,
+        "p95_frame_time_delta_percent": 4.079859742780023,
+        "p99_frame_time_delta_percent": 11.16793361553885,
+        "approximate_extraction_time_delta_percent": -2.769088878304038,
+        "captures_per_variant": 1,
+        "statistical_speedup_established": false,
+        "repeatable_five_percent_overhead_bound_established": false
+      }
+    }
+  },
+  "interpretation": {
+    "dense": "Approximate extraction time decreases from about 0.197 to 0.159 ms per frame, while ordinary text-feature time remains near 0.15 ms. The dense median and mean frame times improve by about 1.3 and 1.9 percent in this brief comparison. This supports the narrow extraction optimization, with no statistical speedup claim.",
+    "empty": "Approximate extraction time decreases only slightly, near the precision of the rounded profiler shares. Median frame time improves, but mean and tail times worsen. No overall empty-scene performance improvement is established.",
+    "decision": "Retain the narrow allocation and duplicate-lookup reduction; do not add caches, custom rendering paths or further profiling machinery based on these short captures."
+  },
+  "privacy": "Only numeric summaries, fixture/method details, class member names and SHA-256 hashes are included. Raw profiling archives, paths, system reports, options and raw samples remain private."
+}
