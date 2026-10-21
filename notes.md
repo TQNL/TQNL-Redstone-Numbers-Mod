@@ -37,7 +37,13 @@ Original resource-pack project and installed Minecraft content are preserved.
   dfdce77ccfadfa4466f52fbfb25ad2c7564f548b2ca46f779e8b3bc6910af4c2.
 - Current preservation check:4560 files unchanged, none missing. All owned QA
   clients stopped; no further performance or runtime tests planned.
-- Pending only final commit/push and0.1.1 prerelease upload/download hash readback.
+- Published0.1.1 prerelease and independently fetched/rehashed all3 public
+  downloads: JAR, unchanged cosmetic ZIP and checksums. All match local audited
+  bytes. Release source8ee558e2db0721bea65d96b9e600212dec635603; private receipt
+  work/release-receipt-v011.json. URL:
+  https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.1-mc1.21.11
+- This requested update is complete. No later Minecraft version started; no
+  further implementation or test run is scheduled.0.1.0 remains available.
 - Older results below document the released0.1.0, not the pending update.
 
 ## Architecture
