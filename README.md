@@ -4,6 +4,9 @@ Client-only redstone power labels for **Minecraft Java 1.21.11**. The sixteen
 number glyphs face the camera and sit just above each wire. Minecraft's ordinary
 world-text renderer supplies depth testing and local lighting.
 
+[Download the 1.21.11 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.0-mc1.21.11)
+(JAR, optional cosmetic pack and checksums).
+
 This mod does not replace terrain, sky, water or other scene shaders. It needs
 **Fabric Loader 0.19.5+ and Fabric API 0.141.6+1.21.11**. Sodium, Iris, Voxy and
 configuration libraries are not required. Other Minecraft versions are not

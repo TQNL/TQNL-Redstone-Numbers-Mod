@@ -86,5 +86,12 @@ Original resource-pack project and installed Minecraft content are preserved.
 - Source, JAR contents, cosmetic ZIP, screenshots and Git identity audited for
   personal paths/credentials/metadata. Only public TQNL noreply identity used.
 - Repository: https://github.com/TQNL/TQNL-Redstone-Numbers-Mod
-- Pending: final documentation audit, commit/push, versioned prerelease upload
-  and public-download hash readback. Then stop at1.21.11.
+- Published source and prerelease v0.1.0-mc1.21.11:
+  https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.0-mc1.21.11
+- Release source commit70b21ddec070b4bf9bc6c946782f9e92dbac577d. All three public
+  downloads (JAR, cosmetic ZIP, SHA256SUMS) fetched without credentials and
+  independently rehashed against local audited bytes. All match. Private receipt:
+  work/release-receipt.json. Final source/privacy review and diff check pass.
+- Milestone implementation and publication finished. Performance qualification
+  above remains explicit; no5%certification claimed. Stop at1.21.11. No further
+  implementation, version port or automatic continuation is scheduled.
