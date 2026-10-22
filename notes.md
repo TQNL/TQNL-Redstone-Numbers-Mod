@@ -45,8 +45,12 @@ and verify the requested menus and pack in isolated Computer Use sessions.
   Cosmetic ZIP SHA256:
   e81a6437e1fefcf4fcdc6c6f477cf63b2cb95dedac32d061b99210d39ac5c8ec.
 - Gradle daemon and QA watchdogs stopped; no outstanding device/workspace cleanup.
-- Next: commit/push and publish/hash-check0.1.3. Remain on Minecraft1.21.11 only;
-  no extra profiling or automatic continuation.
+- Published0.1.3 prerelease from ac81cc99c5fe207b335619440dc65a9add364829:
+  https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc1.21.11
+  All three public downloads were fetched without credentials and independently
+  rehashed against audited local bytes. Receipt work/release-receipt-v013.json.
+- This requested update is complete. Stop at Minecraft1.21.11. No extra tests,
+  profiling, later-version port or automatic continuation is scheduled.
 
 ## Released 0.1.2
 
