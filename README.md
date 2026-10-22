@@ -1,15 +1,16 @@
 # Redstone Numbers
 
-Client-only redstone power labels for **Minecraft Java 26.1**. The sixteen
+Client-only redstone power labels for **Minecraft Java 26.1.1**. The sixteen
 number glyphs face the camera and sit just above each wire. Minecraft's ordinary
 world-text renderer supplies depth testing and local lighting.
 
-[Download the 26.1 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1)
+[Download the 26.1.1 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1.1)
 (JAR, optional cosmetic pack and checksums).
 
 Requires **Fabric Loader 0.19.5+ and Fabric API 0.155.3+26.1.2**. Sodium, Iris,
-Voxy and configuration libraries are optional. This branch targets exactly 26.1. Earlier completed versions are retained on
-codex/mc-<version> branches; see the [compatibility receipts](docs/compatibility).
+Voxy and configuration libraries are optional. This branch targets exactly 26.1.1.
+Earlier completed versions are retained on `codex/mc-<version>` branches;
+see the [compatibility receipts](docs/compatibility).
 
 ## Installation
 

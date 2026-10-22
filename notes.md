@@ -62,7 +62,15 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
   Video Settings RN shortcut and default-off built-in pack menu verified live.
 - 26.1 JAR SHA256 c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368.
   docs/compatibility/26.1.json records exact inputs, visuals and menu checks.
-- Next: push/publish26.1, verify public downloads, then26.1.1 build and smoke.
+- Published26.1 source d9968e1109339d25a5532a8635da9bed3bde828b to main and
+  codex/mc-26.1. All three public release assets independently downloaded and
+  rehashed; matching local bytes. Private receipt work/multi-version/
+  release-receipt-26.1.json. Release v0.1.3-mc26.1.
+- Current branch codex/mc-26.1.1. Build/audit pass; JAR SHA256
+  1b71bcdd118b6fdb1a45ea2ffc4052c7f02cfe90ae7edd52d8313910fa77f687.
+  All seven powered/zero smoke profiles pass, DH with Sodium without Iris.
+  Preservation4561 unchanged. Final receipt/audit/push/publication next, then
+  26.1.2. No26.1.2+build started.
 
 ## 1.21.11 update checkpoint: 0.1.3
 
