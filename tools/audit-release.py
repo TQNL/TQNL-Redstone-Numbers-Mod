@@ -46,7 +46,7 @@ def audit_archive(path):
     return members
 
 def main():
-    jar = ROOT / 'build/libs/redstone-numbers-0.1.1+mc1.21.11.jar'
+    jar = ROOT / 'build/libs/redstone-numbers-0.1.2+mc1.21.11.jar'
     require(jar.is_file(), 'Build the release JAR first.')
     with zipfile.ZipFile(jar) as archive:
         names = archive.namelist()
@@ -60,6 +60,18 @@ def main():
         require(set(meta['depends']) == {'fabricloader','minecraft','java','fabric-api'}, 'Unexpected required dependency')
         require('assets/redstonenumbers/font/numbers.json' in names, 'Private font missing')
         require(not any(n.endswith('.jar') for n in names), 'Unexpected bundled library')
+        prefix = 'resourcepacks/clean_lines/'
+        expected_builtin = {'pack.mcmeta', 'pack.png', 'credits.txt', 'ASSET-LICENSES.md'} | {
+            'assets/minecraft/textures/block/' + n for n in
+            ['redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png']}
+        require({n[len(prefix):] for n in names if n.startswith(prefix) and not n.endswith('/')} == expected_builtin,
+                'Built-in pack violates asset allowlist')
+        icon = (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes()
+        require(archive.read(meta['icon']) == icon, 'Mod icon differs from branding')
+        require(archive.read(prefix + 'pack.png') == icon, 'Built-in pack icon differs from branding')
+        for name in ['redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png']:
+            require(archive.read(prefix + 'assets/minecraft/textures/block/' + name)
+                    == (ROOT / 'cosmetic/textures' / name).read_bytes(), 'Built-in dust differs from source')
     font = json.loads((ROOT / 'src/main/resources/assets/redstonenumbers/font/numbers.json').read_text())
     require(''.join(font['providers'][0]['chars']) == ''.join(chr(0xE000 + n) for n in range(16)), 'Wrong glyph mapping')
     image = Image.open(ROOT / 'src/main/resources/assets/redstonenumbers/textures/font/numbers.png').convert('RGBA')
@@ -68,9 +80,11 @@ def main():
         require(cell.getchannel('A').getbbox() is not None, 'Blank number artwork')
     cosmetic = ROOT / 'outputs/TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip'
     with zipfile.ZipFile(cosmetic) as archive:
-        expected = {'pack.mcmeta', 'credits.txt', 'ASSET-LICENSES.md'} | {
+        expected = {'pack.mcmeta', 'pack.png', 'credits.txt', 'ASSET-LICENSES.md'} | {
             'assets/minecraft/textures/block/' + n for n in ['redstone_dust_dot.png','redstone_dust_line0.png','redstone_dust_line1.png']}
         require(set(archive.namelist()) == expected, 'Cosmetic pack violates asset allowlist')
+        require(archive.read('pack.png') == (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes(),
+                'Cosmetic pack icon differs from branding')
     tracked = subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=ROOT,text=True).splitlines()
     for name in tracked:
         path = ROOT / name
@@ -91,7 +105,7 @@ def main():
     files = [jar, cosmetic]
     output = ROOT / 'outputs'
     (output / 'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in files),encoding='utf-8')
-    print(json.dumps({'artifact_audit':'PASS','glyphs':16,'cosmetic_members':6,
+    print(json.dumps({'artifact_audit':'PASS','glyphs':16,'cosmetic_members':7,'builtin_pack_members':7,
         'publication_files_scanned':len(tracked),'decompressed_artifact_members_scanned':archive_members,
         'git_author_and_committer':'PASS','png_metadata':'PASS'}))
 

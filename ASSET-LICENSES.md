@@ -17,3 +17,8 @@ the three selected dust textures, without number models or shaders.
 
 The mod is a free community modification, not an official Minecraft product.
 It is not approved by or associated with Mojang or Microsoft.
+
+The clean-line textures are also included as a disabled-by-default built-in
+resource pack. They are byte-identical to the previously selected artwork.
+The TQNL branding icon is reused unchanged from the previous shader/resource
+pack editions, for the mod and both cosmetic pack distributions.

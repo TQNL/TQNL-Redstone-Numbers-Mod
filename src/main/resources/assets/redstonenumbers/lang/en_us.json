@@ -17,5 +17,9 @@
   "screen.redstonenumbers.reset.help": "Preview default settings. Choose Done to save them, or Cancel to restore your previous settings.",
   "screen.redstonenumbers.preview": "Changes preview immediately. Done saves; Cancel restores.",
   "screen.redstonenumbers.invalid": "Use distance 1–128, labels 1–65536 and size 0.25–4.",
-  "screen.redstonenumbers.save_error": "Could not save settings. Your changes are still being previewed."
+  "screen.redstonenumbers.save_error": "Could not save settings. Your changes are still being previewed.",
+  "pack.redstonenumbers.clean_lines.title": "Redstone Numbers: Clean Lines",
+  "pack.redstonenumbers.clean_lines.description": "Optional clean-line redstone dust textures. No shaders.",
+  "screen.redstonenumbers.video_button": "RN",
+  "screen.redstonenumbers.video_button.tooltip": "Redstone Numbers settings"
 }

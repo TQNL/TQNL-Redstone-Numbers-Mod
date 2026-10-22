@@ -1,0 +1,28 @@
+{
+  "version": "0.1.2+mc1.21.11",
+  "artifacts": {
+    "redstone-numbers-0.1.2+mc1.21.11.jar": {
+      "bytes": 1799090,
+      "sha256": "1342e0f1d36958776bc57777f5673c2918610fd9afd25a49bc62a35cdb2a83e3"
+    },
+    "TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip": {
+      "bytes": 876724,
+      "sha256": "d4c0bd274c247a0c7b856abe2a12446c9b5c78b8860ec965855c5d88c77a1d6d"
+    }
+  },
+  "required_dependencies_unchanged": true,
+  "world_rendering_and_index_sources_unchanged": true,
+  "live_ui_tested": [
+    "vanilla Fabric Java21",
+    "Sodium0.8.12 with Reese's Sodium Options2.2.3 Java25",
+    "VulkanMod0.6.8 Java21"
+  ],
+  "pack_menu_verified": {
+    "available_disabled_by_default": true,
+    "icon_present": true,
+    "enable_reload": true,
+    "disable_reload": true
+  },
+  "new_performance_benchmark": false,
+  "unit_tests": "NO-SOURCE"
+}

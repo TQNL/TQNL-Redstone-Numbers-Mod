@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -32,6 +33,11 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
     public void onInitializeClient() {
         configPath = FabricLoader.getInstance().getConfigDir().resolve("redstonenumbers.json");
         config = ModConfig.load(configPath);
+        VideoSettingsIntegration.register();
+        ResourceLoader.registerBuiltinPack(
+                Identifier.fromNamespaceAndPath("redstonenumbers", "clean_lines"),
+                FabricLoader.getInstance().getModContainer("redstonenumbers").orElseThrow(),
+                Component.translatable("pack.redstonenumbers.clean_lines.title"), PackActivationType.NORMAL);
         KeyMapping.Category category = KeyMapping.Category.register(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "controls"));
         KeyMapping toggle = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.toggle",

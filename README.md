@@ -4,7 +4,7 @@ Client-only redstone power labels for **Minecraft Java 1.21.11**. The sixteen
 number glyphs face the camera and sit just above each wire. Minecraft's ordinary
 world-text renderer supplies depth testing and local lighting.
 
-[Download the 1.21.11 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.1-mc1.21.11)
+[Download the 1.21.11 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.2-mc1.21.11)
 (JAR, optional cosmetic pack and checksums).
 
 This mod does not replace terrain, sky, water or other scene shaders. It needs
@@ -19,9 +19,14 @@ Disable the old Core/Iris/Plain number resource packs and companion number shade
 when using this mod; they would add duplicate labels or retain old shader changes.
 Choose whichever ordinary resource pack and optional Iris shader you prefer.
 
-The optional **TQNL Redstone Dust Cosmetic** ZIP changes only three dust textures.
-It is independent from the mod and adds no numbers or shaders. Keep it zipped in
-`resourcepacks` and enable it only if you want that appearance.
+The mod includes **Redstone Numbers: Clean Lines** in Minecraft's **Resource
+Packs** menu. It starts disabled. Move it to Selected and choose Done to use the
+same clean-line redstone textures as the earlier packs; move it back to disable.
+Only three dust textures change. Numbers work with either choice.
+
+The separate **TQNL Redstone Dust Cosmetic** ZIP offers the same textures without
+the mod. Use either the built-in pack or that ZIP. Both carry the previous TQNL
+pack icon, which is also shown for the mod.
 
 ## Settings
 
@@ -36,17 +41,22 @@ It is independent from the mod and adds no numbers or shaders. Keep it zipped in
 }
 ```
 
-Open **Mods → Redstone Numbers → Configure** with optional Mod Menu installed.
+Open **Video Settings > Redstone Numbers** with Sodium's supported config API
+(choose its **Options** row if your layout shows one). Reese's Sodium Options
+shows a compact tab with the TQNL icon. Without Sodium, use the small **RN**
+button on the video settings screen. Mod Menu also provides
+**Mods > Redstone Numbers > Configure**. Neither Sodium nor Mod Menu is required.
+
 The native settings screen previews valid edits immediately. **Done** saves;
 **Cancel** or Escape restores the opening values; **Reset** previews the lighter
-defaults. Mod Menu is optional and no extra configuration library is required.
+defaults. No extra configuration library is required.
 
-Without Mod Menu, assign **Open Redstone Numbers settings** in Controls. Both that
-key and **Toggle Redstone Numbers** start unbound. The toggle's state is saved.
+Assign **Open Redstone Numbers settings** in Controls for direct access. Both
+that key and **Toggle Redstone Numbers** start unbound. The toggle's state is saved.
 F1 leaves world labels visible. Existing saved settings are preserved when
 upgrading; use Reset to adopt the new defaults. Direct JSON edits load on restart.
 
-Range is limited to 1–128 blocks, label count to 1–65,536, and scale to 0.25–4.
+Range is limited to 1-128 blocks, label count to 1-65,536, and scale to 0.25-4.
 Nearby visible labels are prioritized when the configured limit is reached.
 Initial discovery is spread across ticks to avoid a large loading spike.
 
@@ -83,6 +93,8 @@ The mod keeps a nearby wire-position index, observes successful client block
 changes, extracts immutable label data, and submits native text. It introduces
 no artificial entities, server packets, terrain rebuilds or custom GPU pipelines.
 
+The [0.1.2 update](docs/update-0.1.2.md) covers video settings integration,
+built-in pack access and icons, including the tested screen versions and limits.
 The [0.1.1 update and measurements](docs/update-0.1.1.md) cover the lower placement,
 Mod Menu settings, lighter defaults and brief controlled profiles in Minecraft.
 The [0.1.0 verification](docs/verification.md) records the earlier full renderer

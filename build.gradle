@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = '0.1.1+mc1.21.11'
+version = '0.1.2+mc1.21.11'
 group = 'dev.tqnl'
 base { archivesName = 'redstone-numbers' }
 
@@ -12,6 +12,10 @@ repositories {
     maven {
         url = 'https://maven.terraformersmc.com/'
         content { includeGroup 'com.terraformersmc' }
+    }
+    maven {
+        url = 'https://maven.caffeinemc.net/releases'
+        content { includeGroup 'net.caffeinemc' }
     }
 }
 
@@ -31,6 +35,7 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.19.5'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11'
     modCompileOnly 'com.terraformersmc:modmenu:17.0.1'
+    modCompileOnly 'net.caffeinemc:sodium-fabric-api:0.8.12+mc1.21.11'
     testImplementation platform('org.junit:junit-bom:5.12.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -49,6 +54,15 @@ tasks.withType(AbstractArchiveTask).configureEach {
 processResources {
     inputs.property 'version', project.version
     filesMatching('fabric.mod.json') { expand 'version': project.version }
+    from('cosmetic/textures') {
+        include 'redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png'
+        into 'resourcepacks/clean_lines/assets/minecraft/textures/block'
+    }
+    from('src/main/resources/assets/redstonenumbers/icon.png') {
+        into 'resourcepacks/clean_lines'
+        rename 'icon.png', 'pack.png'
+    }
+    from(['credits.txt', 'ASSET-LICENSES.md']) { into 'resourcepacks/clean_lines' }
 }
 jar { from('LICENSE') { rename { 'LICENSE-redstone-numbers' } } }
 test { useJUnitPlatform() }

@@ -2,49 +2,65 @@
 
 ## Objective and scope
 
-Continue Minecraft Java 1.21.11 only: match the old shader labels' appearance,
-add accessible settings with lighter defaults, and make measured optimizations
-using brief tests. Preserve the released0.1.0 and publish the reviewed update.
-No later version started.
-Original resource-pack project and installed Minecraft content are preserved.
+Minecraft Java 1.21.11 only. Add a compact Sodium video settings entry using
+its official config API and a native entry for other video settings screens.
+Bundle the installed clean-line dust textures as an optional built-in pack,
+disabled by default. Reuse previous shader pack branding for mod and pack icons.
+Keep rendering untouched, preserve installed content, use Git/public identity,
+and verify the requested menus and pack in isolated Computer Use sessions.
 
-## Current update checkpoint
+## Current update checkpoint: 0.1.2
 
-- User reopened work for shader-like appearance, Mod Menu or Sodium settings,
-  lower defaults, and short profiling with measured optimization improvements.
-- Source comparison: original glyphs,0.25-block cell and local light already
-  match. Excess hover comes from using collision height instead of the actual
-  dust plane. Lower native lift uses visible12px ink height; no shader/depth trick.
-- Planned0.1.1 defaults16-block range/1024 nearest labels; retain existing saved
-  user choices. Native settings screen through optional Mod Menu, no Cloth Config.
-- Index edits remove empty allocations/iterators, redundant selected state reads,
-  and allocations for losing overflow candidates. Frozen0.1.0 JAR in
-  work/qa/baselines. Controlled0.1.1 reference/candidate JARs differ only in
-  WireIndex classes, verified by decompressed-member comparison.
-- Brief profiles complete: one10s dense and one10s empty per build, fixed32/1024.
-  Dense median5.6173 to5.5426ms; empty3.34845 to3.3004ms, but empty mean slightly
-  worsens. Small samples, no strong overall FPS claim. CPU profile review pending.
-- Minimal Java21 starts without Mod Menu. Actual copied Sodium setup is now
-  verified: Mod Menu opens the native form, fresh defaults16/1024 load, and the
-  lowered labels display. Minimal F8 shortcut opens it without Mod Menu; Done
-  persisted an8-block edit. Runtime cancellation was interrupted by the session
-  cap; Cancel/Reset/validation are independently reviewed, not claimed live passes.
-- Native dense extraction estimate0.19663 to0.15921ms/frame (-19.03%); text cost
-  staysabout0.15ms. Empty results mixed. docs/performance-0.1.1.json contains
-  sanitized hashes/statistics; docs/update-0.1.1.md records the exact scope.
-- Full build and source/privacy audit pass (69publicfiles/47archive members at
-  last check); no unit tests. CandidateJAR SHA256:
+- Started from released0.1.1 at bff7552a23ea06998e57221621e518619ec603fb.
+- Optional Sodium external page uses the supplied official config API, compiled
+  against0.8.12. Reese's2.2.3 displays a compact icon/name/version tab. Older
+  API icon fallback is source-checked, not runtime-qualified.
+- GUI-only Fabric screen events add a20x20 RN shortcut to native/recognized
+  replacement video screens. Actual video-button launch provenance supports
+  renamed screens. No new mixins or world-rendering changes. Prefer free lower
+  left, then header space. Known Sodium/Reese's families use only the API entry.
+- Resource Packs lists Redstone Numbers: Clean Lines under Available by default
+  (NORMAL activation). Only the three existing textures, verified byte-identical
+  to the active installed clean-line packs, plus metadata/icon/credits/licenses.
+- Legacy TQNL icon is reused unchanged for mod, Sodium entry, built-in pack and
+  cosmetic ZIP. Gradle assembles built-in assets from single committed sources.
+- Live Computer Use verification complete: vanilla Fabric Java21 and VulkanMod
+  0.6.8 Java21 final footer button opens settings with no overlap. Copied actual
+  Sodium0.8.12/Reese's2.2.3 Java25 has compact API tab/icon, opens form and returns;
+  Cancel restores an OFF preview to ON. Duplicate Reese's shortcut caught/fixed.
+  Vulkan Support overlap caught/fixed, final placement rechecked in both native
+  and Vulkan screens. No extra runtime tests planned.
+- Native pack menu default-off, enable+save+resource reload, disable+save+reload
+  verified. No shaders, legacy number models or unrelated textures bundled.
+- docs/update-0.1.2.md and docs/verification-0.1.2.json record scope/limitations;
+  four native screenshots in docs/images/v012-*.png. No new performance claim,
+  rendering/index files unchanged from0.1.1; Gradle test reports NO-SOURCE.
+- Final preservation: all4561 installed files unchanged, none missing; every
+  owned QA client stopped after clean saves. Private receipts:
+  work/qa/preservation-{before,after}-v012.json and owned-process-final-v012.json.
+- Build and source/artifact/privacy audit pass. Final JAR SHA256:
+  1342e0f1d36958776bc57777f5673c2918610fd9afd25a49bc62a35cdb2a83e3.
+  Cosmetic ZIP SHA256:
+  d4c0bd274c247a0c7b856abe2a12446c9b5c78b8860ec965855c5d88c77a1d6d.
+- Next: final publication audit, commit/push and verify the0.1.2 prerelease
+  downloads. Remain at Minecraft1.21.11; no later-version work or automation.
+
+## Released 0.1.1
+
+- Grounded label placement uses actual dust plane and visible 12px ink height;
+  no shader/depth trick. Fresh defaults 16 blocks/1024 labels; saved choices kept.
+- Optional Mod Menu/native form and unbound settings key. Done saves; Cancel
+  restores. Minimal and copied Sodium setup verified. Cancellation runtime
+  check interrupted by session cap; source reviewed only.
+- Controlled short profiles differed only in WireIndex. Dense extraction estimate
+  0.19663 to 0.15921 ms/frame (-19.03%); mixed empty results and no strong FPS claim.
+  See docs/update-0.1.1.md and docs/performance-0.1.1.json.
+- Build/privacy audit passed; 4560 installed files unchanged and none missing.
+  All owned QA clients stopped. Release JAR SHA256:
   dfdce77ccfadfa4466f52fbfb25ad2c7564f548b2ca46f779e8b3bc6910af4c2.
-- Current preservation check:4560 files unchanged, none missing. All owned QA
-  clients stopped; no further performance or runtime tests planned.
-- Published0.1.1 prerelease and independently fetched/rehashed all3 public
-  downloads: JAR, unchanged cosmetic ZIP and checksums. All match local audited
-  bytes. Release source8ee558e2db0721bea65d96b9e600212dec635603; private receipt
-  work/release-receipt-v011.json. URL:
+- Published source 8ee558e2db0721bea65d96b9e600212dec635603; all three public
+  downloads independently rehashed. Private work/release-receipt-v011.json.
   https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.1-mc1.21.11
-- This requested update is complete. No later Minecraft version started; no
-  further implementation or test run is scheduled.0.1.0 remains available.
-- Older results below document the released0.1.0, not the pending update.
 
 ## Architecture
 
@@ -60,12 +76,14 @@ Original resource-pack project and installed Minecraft content are preserved.
   initially unbound settings and toggle keys. F1 retains labels.
 - Below the label cap, skip heap maintenance and sorting. Overflow retains
   bounded nearest selection with deterministic distance/position ties.
-- Independent optional dust-only pack with exactly three textures and licenses.
+- Optional built-in dust-only pack, off by default, and equivalent standalone ZIP;
+  exactly three textures, original branding icon and asset licenses.
 
 ## Relevant files
 
 - src/client/java/dev/tqnl/redstonenumbers/: entrypoint, ModConfig, WireIndex,
-  NumberRenderer, SettingsScreen, ModMenuIntegration and observational chunk mixin.
+  NumberRenderer, SettingsScreen, ModMenuIntegration, SodiumIntegration,
+  VideoSettingsIntegration and observational chunk mixin.
 - src/main/resources/assets/redstonenumbers/: namespaced font and 16 glyphs.
 - cosmetic/textures/: three original dust textures; tools/package_cosmetic.py
   packages them using only Python standard library.
