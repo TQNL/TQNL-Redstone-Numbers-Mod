@@ -82,7 +82,7 @@ public final class NumberRenderer {
             poses.translate(label.position().getX() + 0.5 - frame.camera.x,
                     label.position().getY() + frame.lift - frame.camera.y,
                     label.position().getZ() + 0.5 - frame.camera.z);
-            poses.mulPose(orientation);
+            poses.rotate(orientation);
             poses.scale(frame.units, -frame.units, frame.units);
             context.submitNodeCollector().submitText(poses, glyph.x, glyph.y, glyph.text, false,
                     Font.DisplayMode.NORMAL, label.packedLight(), 0xFFFFFFFF, 0, 0);

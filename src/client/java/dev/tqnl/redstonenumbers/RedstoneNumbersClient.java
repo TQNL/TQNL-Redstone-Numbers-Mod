@@ -41,9 +41,9 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
         KeyMapping.Category category = KeyMapping.Category.register(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "controls"));
         KeyMapping toggle = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.redstonenumbers.toggle",
-                InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
+                InputConstants.Type.KEYBOARD, InputConstants.UNKNOWN.getValue(), category));
         KeyMapping settings = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.redstonenumbers.settings",
-                InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
+                InputConstants.Type.KEYBOARD, InputConstants.UNKNOWN.getValue(), category));
 
         ClientChunkEvents.CHUNK_LOAD.register(WireIndex.INSTANCE::onChunkLoad);
         ClientChunkEvents.CHUNK_UNLOAD.register(WireIndex.INSTANCE::onChunkUnload);

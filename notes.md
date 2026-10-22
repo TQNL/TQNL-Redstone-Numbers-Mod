@@ -98,8 +98,40 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
   JAR SHA2560f944efe8f576fdb447092a238b59b3eca103e873a3702e3b749a94245d63054.
   Preservation4561 unchanged. All six available profiles pass powered0-15 and
   live zero native visuals, including Complementary, Voxy and DH+Iris. DH needed
-  one brief relaunch to capture zero before its watchdog. Next audit/push/publish;
-  no26.3build started yet.
+  one brief relaunch to capture zero before its watchdog. Published source
+  ca82c2c22910c1f8a2baf3555dc3d08c5209dfa3 to main/codex/mc-26.2 and release
+  v0.1.3-mc26.2. All three public downloads independently rehashed successfully.
+- Current branch codex/mc-26.3, final stable target. Java25, API0.164.0+26.3,
+  Mod Menu21.0.0, Sodium0.9.2, resource format97.1. Building before six available
+  isolated world checks; VulkanMod unavailable. Build/artifact audit passes;
+  native renames RedstoneWireBlock, PoseStack.rotate and InputConstants.KEYBOARD
+  adapted from official client bytecode. No new hooks or fallback rendering.
+  Gradle test remains NO-SOURCE. Minimal powered/zero native F2 visuals pass;
+  JAR573e044d340e7c76a64c150280be23a3ff7c7fea58429e4cb397a7db36b36261.
+  GPU capture of the settings attempt was black; no26.3menu visual pass claimed.
+  Sodium/Reese's, Iris/BSL and Iris/Complementary powered/zero visuals also pass.
+  Voxy0.2.20 also passes; log confirms its IrisVoxyRenderPipeline/MDI renderer
+  created and shut down normally. DH3.3.4/Iris1.11.7/Complementary passes the
+  nearby powered/zero visual check but logs render-pass/GL warnings; no clean-log
+  or distant-LOD pass claimed. All six26.3profiles checked. Public checkpoint and
+  artifact/privacy audit pass. Final preservation:4561 unchanged, none missing.
+  Every owned campaign client is stopped (final-owned-clients.json); the unique
+  task Gradle daemon is stopped. Ready for final source/release publication.
+
+## Stable-release campaign result
+
+- Built and checked1.21.11,26.1,26.1.1,26.1.2,26.2,26.3 in chronological order,
+  completing each public checkpoint before the next target build.40 selected
+  version/profile checks total: seven each through26.1.2 and six each for26.2/3.
+- Exact inputs, public file hashes, native screenshot hashes and qualifications
+  are in docs/compatibility/*.json.40 checks are brief world smokes, not full
+  scene/performance certification. VulkanMod26.2/3 unavailable; DH26.1/1 uses
+  Sodium without Iris due incompatible upstream versions. No dependency override.
+- Native Sodium0.9menu visual testing remains qualified; earlier26.1 native
+  settings, vanilla shortcut and default-off Resource Packs listing were verified.
+- Retain private evidence/fixtures under work/ via task-specific D: junctions.
+  Empty work/qa-move-residue remains because automatic approval blocked cleanup.
+  No further versions or automatic continuation are scheduled after26.3.
 
 ## 1.21.11 update checkpoint: 0.1.3
 

@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RedStoneWireBlock;
+import net.minecraft.world.level.block.RedstoneWireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
@@ -116,7 +116,7 @@ public final class WireIndex {
                     eligible = new ArrayList<>(Math.min(maxLabels, 256));
                 }
                 Candidate candidate = new Candidate(position, distanceSquared,
-                        state.getValue(RedStoneWireBlock.POWER), state);
+                        state.getValue(RedstoneWireBlock.POWER), state);
                 if (nearest == null && eligible.size() < maxLabels) {
                     eligible.add(candidate);
                     continue;
