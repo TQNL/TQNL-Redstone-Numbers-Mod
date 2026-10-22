@@ -116,7 +116,10 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
   or distant-LOD pass claimed. All six26.3profiles checked. Public checkpoint and
   artifact/privacy audit pass. Final preservation:4561 unchanged, none missing.
   Every owned campaign client is stopped (final-owned-clients.json); the unique
-  task Gradle daemon is stopped. Ready for final source/release publication.
+  task Gradle daemon is stopped. Published source
+  fbb8a069d6552afea32fef7ac67e07fa55a3b136 to main/codex/mc-26.3 and release
+  v0.1.3-mc26.3. All three public assets downloaded without credentials and
+  rehashed against audited local bytes; all match (release-receipt-26.3.json).
 
 ## Stable-release campaign result
 
@@ -132,6 +135,9 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
 - Retain private evidence/fixtures under work/ via task-specific D: junctions.
   Empty work/qa-move-residue remains because automatic approval blocked cleanup.
   No further versions or automatic continuation are scheduled after26.3.
+- Campaign complete. All six targets pushed, with version branches and public
+  versioned JAR/cosmetic/checksum downloads. Mod releases retain prerelease status.
+  Local main is advanced to the completed source; no installed profile changed.
 
 ## 1.21.11 update checkpoint: 0.1.3
 
