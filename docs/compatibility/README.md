@@ -19,3 +19,4 @@ Use the JAR and optional cosmetic pack matching the exact Minecraft version.
 | [1.21.11](1.21.11.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-1.21.11) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc1.21.11) | 7 tested |
 | [26.1](26.1.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-26.1) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1) | 7 tested |
 | [26.1.1](26.1.1.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-26.1.1) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1.1) | 7 tested |
+| [26.1.2](26.1.2.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-26.1.2) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1.2) | 7 tested |

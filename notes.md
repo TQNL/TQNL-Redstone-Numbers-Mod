@@ -69,8 +69,25 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
 - Current branch codex/mc-26.1.1. Build/audit pass; JAR SHA256
   1b71bcdd118b6fdb1a45ea2ffc4052c7f02cfe90ae7edd52d8313910fa77f687.
   All seven powered/zero smoke profiles pass, DH with Sodium without Iris.
-  Preservation4561 unchanged. Final receipt/audit/push/publication next, then
-  26.1.2. No26.1.2+build started.
+  Preservation4561 unchanged. Published source1623049f9cd94b6a0ac72f58f32d571fbbc14cb4
+  to main/codex/mc-26.1.1 and v0.1.3-mc26.1.1. Three public assets independently
+  rehashed against local bytes; receipt work/multi-version/release-receipt-26.1.1.json.
+- Current branch codex/mc-26.1.2, build/audit pass. JAR SHA256
+  616903d90d41586472e345c30ed9aa8479ccb4cb4067f6eb62d3369f7049b680.
+  Minimal and Sodium/Reese's powered/zero smoke pass, preservation4561 unchanged.
+  GPU window capture is white on the0.9stack; native F2 remains reliable. First
+  menu navigation attempt reached its bounded watchdog; no menu pass claimed yet.
+  Iris/BSL now passes powered/zero too. Two menu attempts hit the bounded
+  watchdog after their completed world smoke; native0.9menu remains unverified.
+  Stop additional menu retries to honor brief tests. Continue Complementary,
+  All seven26.1.2 world smoke profiles pass, including DH+Iris and Vulkan.
+  Native0.9menu visual qualification remains above. Next receipt/audit/publish,
+  then26.2. No26.2/26.3build started yet.
+  Do not reuse expired window handles.
+  Native Sodium0.9.2
+  compile API; normal stack Iris1.11.4/Reese's2.2.4. Voxy profile separately pinned
+  to its supported Sodium0.9.1/Iris1.11.3/Reese's2.2.3. DH+Iris now supported by
+  the available native stack. No26.2/26.3 build started yet.
 
 ## 1.21.11 update checkpoint: 0.1.3
 
