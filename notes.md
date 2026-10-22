@@ -82,12 +82,24 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
   Stop additional menu retries to honor brief tests. Continue Complementary,
   All seven26.1.2 world smoke profiles pass, including DH+Iris and Vulkan.
   Native0.9menu visual qualification remains above. Next receipt/audit/publish,
-  then26.2. No26.2/26.3build started yet.
+  Published source c356b05f34320b92315432635bba88ce07d1ed1d to main and
+  codex/mc-26.1.2, release v0.1.3-mc26.1.2. All three public downloads rehashed
+  against local bytes; private release-receipt-26.1.2.json.
   Do not reuse expired window handles.
   Native Sodium0.9.2
   compile API; normal stack Iris1.11.4/Reese's2.2.4. Voxy profile separately pinned
   to its supported Sodium0.9.1/Iris1.11.3/Reese's2.2.3. DH+Iris now supported by
-  the available native stack. No26.2/26.3 build started yet.
+  the available native stack.
+- Current branch codex/mc-26.2. Build/audit pass: API0.161.0+26.2,
+  Mod Menu20.0.3, Sodium0.9.2, resource format88.0. Six available profiles;
+  no publisher-listed VulkanMod26.2. Native camera accessor, Gui screen ownership
+  and LightCoordsUtil calls adapted; no new hooks. Minimal/Sodium/Iris-BSL
+  powered/zero smoke pass, standalone form opens with all defaults intact.
+  JAR SHA2560f944efe8f576fdb447092a238b59b3eca103e873a3702e3b749a94245d63054.
+  Preservation4561 unchanged. All six available profiles pass powered0-15 and
+  live zero native visuals, including Complementary, Voxy and DH+Iris. DH needed
+  one brief relaunch to capture zero before its watchdog. Next audit/push/publish;
+  no26.3build started yet.
 
 ## 1.21.11 update checkpoint: 0.1.3
 

@@ -88,7 +88,7 @@ public final class VideoSettingsIntegration {
         if (place == null) return;
         Component tooltip = Component.translatable("screen.redstonenumbers.video_button.tooltip");
         Button shortcut = Button.builder(Component.translatable(BUTTON_KEY),
-                        button -> client.setScreen(RedstoneNumbersClient.createSettingsScreen(screen)))
+                        button -> client.gui.setScreen(RedstoneNumbersClient.createSettingsScreen(screen)))
                 .bounds(place.left(), place.top(), 20, 20)
                 .tooltip(Tooltip.create(tooltip))
                 .createNarration(message -> tooltip.copy())

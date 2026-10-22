@@ -61,15 +61,15 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                 }
             }
             while (settings.consumeClick()) {
-                client.setScreen(createSettingsScreen(client.screen));
+                client.gui.setScreen(createSettingsScreen(client.gui.screen()));
             }
             if (client.level != previousLevel) {
                 WireIndex.INSTANCE.reset();
                 previousLevel = client.level;
             }
             if (client.level != null) {
-                Vec3 camera = client.gameRenderer.getMainCamera().isInitialized()
-                        ? client.gameRenderer.getMainCamera().position()
+                Vec3 camera = client.gameRenderer.mainCamera().isInitialized()
+                        ? client.gameRenderer.mainCamera().position()
                         : client.player == null ? Vec3.ZERO : client.player.position();
                 WireIndex.INSTANCE.tick(client.level, camera, config.range, config.enabled);
             }

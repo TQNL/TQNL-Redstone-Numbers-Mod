@@ -48,7 +48,7 @@ public final class SettingsScreen extends Screen {
         done = addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, button -> {
             if (config.save(path)) {
                 accepted = true;
-                minecraft.setScreen(parent);
+                minecraft.gui.setScreen(parent);
             } else {
                 saveFailed = true;
             }
@@ -128,7 +128,7 @@ public final class SettingsScreen extends Screen {
     @Override
     public void onClose() {
         config.copyFrom(original);
-        minecraft.setScreen(parent);
+        minecraft.gui.setScreen(parent);
     }
 
     @Override

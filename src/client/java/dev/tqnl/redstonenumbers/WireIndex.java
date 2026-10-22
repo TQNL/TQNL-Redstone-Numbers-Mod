@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
@@ -144,8 +144,8 @@ public final class WireIndex {
         }
         List<Label> labels = new ArrayList<>(ordered.size());
         for (Candidate candidate : ordered) {
-            labels.add(new Label(candidate.position, candidate.power, LevelRenderer.getLightCoords(
-                    LevelRenderer.BrightnessGetter.DEFAULT, level, candidate.state, candidate.position)));
+            labels.add(new Label(candidate.position, candidate.power, LightCoordsUtil.getLightCoords(
+                    LightCoordsUtil.BrightnessGetter.DEFAULT, level, candidate.state, candidate.position)));
         }
         return List.copyOf(labels);
     }
