@@ -2,12 +2,44 @@
 
 ## Objective and scope
 
-Minecraft Java 1.21.11 only. Add a compact Sodium video settings entry using
-its official config API and a native entry for other video settings screens.
-Bundle the installed clean-line dust textures as an optional built-in pack,
-disabled by default. Reuse previous resource-pack branding for mod and pack icons.
-Keep rendering untouched, preserve installed content, use Git/public identity,
-and verify the requested menus and pack in isolated Computer Use sessions.
+User now explicitly authorizes every stable Minecraft release from1.21.11 through
+latest, including patches, oldest first. Confirmed range:1.21.11,26.1,26.1.1,
+26.1.2,26.2,26.3 (official Mojang manifest,2026-10-22). Build, briefly smoke-test
+available renderer/mod combinations, and push each completed version to the repo.
+Keep native controls, compact default-off pack, existing appearance and defaults,
+minimal rendering intervention, public TQNL identity and installed-content isolation.
+Use Computer Use for real-client checks; no broad performance benchmark requested.
+
+## Multi-version checkpoint
+
+- Starting source74dceb889e2944f1c774a531c5c504df293680f5; clean repo.
+- Official stable release list recorded privately in work/multi-version/
+  mojang-release-scope.json. Snapshots/pre-releases excluded.
+- Planned representative combinations: minimal Fabric; Sodium+Reese's+Mod Menu;
+  Sodium+Iris (two published visual presets) and Voxy where available; DH;
+  VulkanMod separately. Unsupported dependency combinations will be recorded,
+  not forced. Historical1.21.11 evidence retained; current0.1.3 smoke comes first.
+- Publisher catalog pinned. Latest1.21.11 Sodium0.8.14/RSO2.2.4/Iris1.10.8
+  stack is separate from Voxy's exact Sodium0.8.12 older stack.
+- 1.21.11 current0.1.3 build passes. Latest Sodium/RSO smoke visually observed
+  powered/zero/powered labels and actual16-wire state assertions, native F2 pair.
+- Minimal final serial retry passes native F2 powered/zero visuals. Initial
+  focus/capture attempts crashed in glfw.dll or stalled in glfwSwapBuffers;
+  no mod frame established. Kept native reports private, used text-only window
+  inspection and unlimited private client cap for the passing retry. Cause remains
+  unproven. Latest Iris1.10.8+BSL10.1.8 and Complementary5.9.3 pass the same brief
+  check; Complementary logs an unknown biome-variable warning.
+- C: filled during campaign preparation. Moved only this campaign's temporary
+  directory to the D: task work directory, keeping work/multi-version as a
+  junction. No user files deleted. Future Gradle cache will also use D:.
+- Do not start a newer-version build
+  until the previous version has its smoke result and Git checkpoint.
+- All seven1.21.11 combinations now visually pass powered0-15 and live zero
+  update, with server assertions and native F2 hashes in docs/compatibility/
+  1.21.11.json. Final owned processes stopped. Artifact/privacy audit passes;
+  all4561 installed files unchanged, none missing.
+- Next: push1.21.11 checkpoint, then port26.1. Official runtime metadata for
+  26.1/26.1.1/26.1.2/26.2 acquired; no later-version build started yet.
 
 ## Current update checkpoint: 0.1.3
 
