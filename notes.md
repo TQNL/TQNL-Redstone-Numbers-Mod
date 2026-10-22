@@ -42,8 +42,15 @@ and verify the requested menus and pack in isolated Computer Use sessions.
   1342e0f1d36958776bc57777f5673c2918610fd9afd25a49bc62a35cdb2a83e3.
   Cosmetic ZIP SHA256:
   d4c0bd274c247a0c7b856abe2a12446c9b5c78b8860ec965855c5d88c77a1d6d.
-- Next: final publication audit, commit/push and verify the0.1.2 prerelease
-  downloads. Remain at Minecraft1.21.11; no later-version work or automation.
+- Final publication audit passed79 public files/62 decompressed archive members.
+  Published0.1.2 prerelease from source aede5a65a64a7ee909587d07a649b9407a6019ad:
+  https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.2-mc1.21.11
+  All three public downloads fetched without credentials and independently hashed
+  against audited local bytes. Receipt: work/release-receipt-v012.json.
+- Gradle daemon and all owned QA clients/helpers stopped. No temporary device
+  settings changed and no cleanup remains outside ignored work/.
+- This update is complete. Stop at Minecraft1.21.11; no later-version work,
+  further runtime/performance tests or automatic continuation is scheduled.
 
 ## Released 0.1.1
 

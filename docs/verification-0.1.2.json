@@ -24,5 +24,14 @@
     "disable_reload": true
   },
   "new_performance_benchmark": false,
-  "unit_tests": "NO-SOURCE"
+  "unit_tests": "NO-SOURCE",
+  "preservation": {
+    "checked_installed_files": 4561,
+    "changed": 0,
+    "missing": 0
+  },
+  "owned_test_clients_stopped": true,
+  "release": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.2-mc1.21.11",
+  "release_source_commit": "aede5a65a64a7ee909587d07a649b9407a6019ad",
+  "public_downloads_hash_verified": true
 }
