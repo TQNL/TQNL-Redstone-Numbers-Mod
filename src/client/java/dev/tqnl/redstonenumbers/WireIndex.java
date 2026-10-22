@@ -144,7 +144,7 @@ public final class WireIndex {
         }
         List<Label> labels = new ArrayList<>(ordered.size());
         for (Candidate candidate : ordered) {
-            labels.add(new Label(candidate.position, candidate.power, LevelRenderer.getLightColor(
+            labels.add(new Label(candidate.position, candidate.power, LevelRenderer.getLightCoords(
                     LevelRenderer.BrightnessGetter.DEFAULT, level, candidate.state, candidate.position)));
         }
         return List.copyOf(labels);
@@ -270,12 +270,12 @@ public final class WireIndex {
     }
 
     private void removeChunk(LevelChunk chunk, boolean requireSameInstance) {
-        int x = chunk.getPos().x;
-        int z = chunk.getPos().z;
-        sections.values().removeIf(section -> section.chunk.getPos().x == x
-                && section.chunk.getPos().z == z && (!requireSameInstance || section.chunk == chunk));
-        pending.removeIf(section -> section.chunk.getPos().x == x
-                && section.chunk.getPos().z == z && (!requireSameInstance || section.chunk == chunk));
+        int x = chunk.getPos().x();
+        int z = chunk.getPos().z();
+        sections.values().removeIf(section -> section.chunk.getPos().x() == x
+                && section.chunk.getPos().z() == z && (!requireSameInstance || section.chunk == chunk));
+        pending.removeIf(section -> section.chunk.getPos().x() == x
+                && section.chunk.getPos().z() == z && (!requireSameInstance || section.chunk == chunk));
     }
 
     public record Label(BlockPos position, int power, int packedLight) {}

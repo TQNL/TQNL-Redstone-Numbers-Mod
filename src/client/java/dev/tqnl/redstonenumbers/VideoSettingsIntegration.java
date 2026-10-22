@@ -41,11 +41,11 @@ public final class VideoSettingsIntegration {
     }
 
     private static void watchVideoLauncher(Screen screen) {
-        List<AbstractWidget> buttons = Screens.getButtons(screen);
+        List<AbstractWidget> buttons = Screens.getWidgets(screen);
         if (buttons.stream().noneMatch(VideoSettingsIntegration::videoEntry)) return;
         // Observe an actual Video Settings activation rather than guessing arbitrary mod screen names.
         ScreenMouseEvents.beforeMouseClick(screen).register((source, event) -> {
-            if (event.button() == 0 && Screens.getButtons(source).stream()
+            if (event.button() == 0 && Screens.getWidgets(source).stream()
                     .anyMatch(widget -> videoEntry(widget) && widget.active && widget.visible
                             && widget.isMouseOver(event.x(), event.y()))) {
                 videoLauncher = source;
@@ -82,7 +82,7 @@ public final class VideoSettingsIntegration {
     }
 
     private static void addShortcut(Minecraft client, Screen screen) {
-        List<AbstractWidget> buttons = Screens.getButtons(screen);
+        List<AbstractWidget> buttons = Screens.getWidgets(screen);
         if (buttons.stream().anyMatch(widget -> translation(widget.getMessage(), BUTTON_KEY))) return;
         ScreenRectangle place = findSpace(client, screen, buttons);
         if (place == null) return;
@@ -96,8 +96,8 @@ public final class VideoSettingsIntegration {
         buttons.add(shortcut);
         // Some replacement screens draw their own widgets without calling Screen.render().
         // Drawing this small native control after that GUI also makes it visible there.
-        ScreenEvents.afterRender(screen).register((current, graphics, mouseX, mouseY, delta) ->
-                shortcut.render(graphics, mouseX, mouseY, delta));
+        ScreenEvents.afterExtract(screen).register((current, graphics, mouseX, mouseY, delta) ->
+                shortcut.extractRenderState(graphics, mouseX, mouseY, delta));
         ScreenMouseEvents.allowMouseClick(screen).register((current, event) -> {
             if (event.button() == 0 && shortcut.isMouseOver(event.x(), event.y())) {
                 shortcut.mouseClicked(event, false);

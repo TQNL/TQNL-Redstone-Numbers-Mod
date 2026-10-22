@@ -1,9 +1,10 @@
 plugins {
-    id 'net.fabricmc.fabric-loom-remap' version '1.17.21'
+    id 'net.fabricmc.fabric-loom' version '1.17.21'
     id 'maven-publish'
 }
 
-version = '0.1.3+mc1.21.11'
+def target = new groovy.json.JsonSlurper().parse(file('target.json'))
+version = target.mod_version
 group = 'dev.tqnl'
 base { archivesName = 'redstone-numbers' }
 
@@ -30,30 +31,29 @@ loom {
 }
 
 dependencies {
-    minecraft 'com.mojang:minecraft:1.21.11'
-    mappings loom.officialMojangMappings()
-    modImplementation 'net.fabricmc:fabric-loader:0.19.5'
-    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11'
-    modCompileOnly 'com.terraformersmc:modmenu:17.0.1'
-    modCompileOnly 'net.caffeinemc:sodium-fabric-api:0.8.12+mc1.21.11'
+    minecraft "com.mojang:minecraft:${target.minecraft}"
+    implementation 'net.fabricmc:fabric-loader:0.19.5'
+    implementation "net.fabricmc.fabric-api:fabric-api:${target.fabric_api}"
+    compileOnly "com.terraformersmc:modmenu:${target.modmenu}"
+    compileOnly "net.caffeinemc:sodium-fabric-api:${target.sodium_api}"
     testImplementation platform('org.junit:junit-bom:5.12.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.toVersion(target.java)
+    targetCompatibility = JavaVersion.toVersion(target.java)
     withSourcesJar()
 }
-tasks.withType(JavaCompile).configureEach { options.release = 21 }
+tasks.withType(JavaCompile).configureEach { options.release = target.java }
 tasks.withType(AbstractArchiveTask).configureEach {
     preserveFileTimestamps = false
     reproducibleFileOrder = true
 }
 processResources {
-    inputs.property 'version', project.version
-    filesMatching('fabric.mod.json') { expand 'version': project.version }
+    inputs.properties target
+    filesMatching('fabric.mod.json') { expand target + [version: project.version] }
     from('cosmetic/textures') {
         include 'redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png'
         into 'resourcepacks/clean_lines/assets/minecraft/textures/block'

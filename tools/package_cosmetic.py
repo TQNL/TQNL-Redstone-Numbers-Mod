@@ -4,15 +4,16 @@ import json
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+TARGET = json.loads((ROOT / 'target.json').read_text())
 TEXTURE_NAMES = ('redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png')
 
 
 def build():
     output = ROOT / 'outputs'
     output.mkdir(exist_ok=True)
-    cosmetic = output / 'TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip'
+    cosmetic = output / ('TQNL-Redstone-Dust-Cosmetic-mc' + TARGET['minecraft'] + '.zip')
     members = {
-        'pack.mcmeta': json.dumps({'pack': {'min_format': [75, 0], 'max_format': [75, 0],
+        'pack.mcmeta': json.dumps({'pack': {'min_format': TARGET['resource_format'], 'max_format': TARGET['resource_format'],
             'description': 'Clean-line redstone dust textures.'}}, indent=2).encode(),
         'credits.txt': (ROOT / 'credits.txt').read_bytes(),
         'pack.png': (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes(),

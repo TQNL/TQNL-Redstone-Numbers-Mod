@@ -5,9 +5,9 @@ import java.nio.file.Path;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientChunkEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
 import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -40,9 +40,9 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                 Component.translatable("pack.redstonenumbers.clean_lines.title"), PackActivationType.NORMAL);
         KeyMapping.Category category = KeyMapping.Category.register(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "controls"));
-        KeyMapping toggle = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.toggle",
+        KeyMapping toggle = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.redstonenumbers.toggle",
                 InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
-        KeyMapping settings = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.settings",
+        KeyMapping settings = KeyMappingHelper.registerKeyMapping(new KeyMapping("key.redstonenumbers.settings",
                 InputConstants.Type.KEYSYM, InputConstants.UNKNOWN.getValue(), category));
 
         ClientChunkEvents.CHUNK_LOAD.register(WireIndex.INSTANCE::onChunkLoad);
@@ -56,8 +56,8 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                 config.enabled = !config.enabled;
                 config.save(configPath);
                 if (client.player != null) {
-                    client.player.displayClientMessage(Component.translatable(config.enabled
-                            ? "message.redstonenumbers.enabled" : "message.redstonenumbers.disabled"), true);
+                    client.player.sendOverlayMessage(Component.translatable(config.enabled
+                            ? "message.redstonenumbers.enabled" : "message.redstonenumbers.disabled"));
                 }
             }
             while (settings.consumeClick()) {
@@ -74,11 +74,11 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                 WireIndex.INSTANCE.tick(client.level, camera, config.range, config.enabled);
             }
         });
-        ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloader(
+        ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloadListener(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "font_layout"),
                 (ResourceManagerReloadListener) resources -> renderer.invalidateFont());
-        WorldRenderEvents.END_EXTRACTION.register(context -> renderer.extract(context, config));
-        WorldRenderEvents.BEFORE_ENTITIES.register(renderer::submit);
+        LevelRenderEvents.END_EXTRACTION.register(context -> renderer.extract(context, config));
+        LevelRenderEvents.COLLECT_SUBMITS.register(renderer::submit);
         LOGGER.info("Redstone Numbers ready: ordinary world text, range {}, limit {}", config.range, config.maxLabels);
     }
 

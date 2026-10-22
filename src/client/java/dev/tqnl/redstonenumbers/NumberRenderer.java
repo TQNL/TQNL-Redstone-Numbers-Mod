@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import net.fabricmc.fabric.api.client.rendering.v1.FabricRenderState;
 import net.fabricmc.fabric.api.client.rendering.v1.RenderStateDataKey;
-import net.fabricmc.fabric.api.client.rendering.v1.world.WorldExtractionContext;
-import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderContext;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelExtractionContext;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderContext;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.navigation.ScreenRectangle;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.FontDescription;
 import net.minecraft.network.chat.Style;
@@ -37,17 +37,17 @@ public final class NumberRenderer {
         glyphs = null;
     }
 
-    public void extract(WorldExtractionContext context, ModConfig config) {
-        FabricRenderState state = (FabricRenderState) context.worldState();
+    public void extract(LevelExtractionContext context, ModConfig config) {
+        FabricRenderState state = (FabricRenderState) context.levelState();
         Minecraft client = Minecraft.getInstance();
-        if (!config.enabled || context.world() == null) {
+        if (!config.enabled || context.level() == null) {
             state.setData(FRAME, null);
             return;
         }
 
-        CameraRenderState camera = context.worldState().cameraRenderState;
+        CameraRenderState camera = context.levelState().cameraRenderState;
         List<WireIndex.Label> labels = WireIndex.INSTANCE.snapshot(
-                context.world(), camera.pos, context.frustum(), config.range, config.maxLabels);
+                context.level(), camera.pos, camera.cullFrustum, config.range, config.maxLabels);
         if (labels.isEmpty()) {
             state.setData(FRAME, null);
             return;
@@ -68,12 +68,12 @@ public final class NumberRenderer {
                 orientation.x, orientation.y, orientation.z, orientation.w, units, lift));
     }
 
-    public void submit(WorldRenderContext context) {
-        Frame frame = ((FabricRenderState) context.worldState()).getData(FRAME);
+    public void submit(LevelRenderContext context) {
+        Frame frame = ((FabricRenderState) context.levelState()).getData(FRAME);
         if (frame == null) {
             return;
         }
-        PoseStack poses = context.matrices();
+        PoseStack poses = context.poseStack();
         Quaternionf orientation = new Quaternionf(frame.qx, frame.qy, frame.qz, frame.qw);
         for (WireIndex.Label label : frame.labels) {
             Glyph glyph = frame.glyphs.get(label.power());
@@ -84,7 +84,7 @@ public final class NumberRenderer {
                     label.position().getZ() + 0.5 - frame.camera.z);
             poses.mulPose(orientation);
             poses.scale(frame.units, -frame.units, frame.units);
-            context.commandQueue().submitText(poses, glyph.x, glyph.y, glyph.text, false,
+            context.submitNodeCollector().submitText(poses, glyph.x, glyph.y, glyph.text, false,
                     Font.DisplayMode.NORMAL, label.packedLight(), 0xFFFFFFFF, 0, 0);
             poses.popPose();
         }

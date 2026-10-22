@@ -11,3 +11,10 @@ are recorded rather than forced. Voxy and Distant Horizons are tested separately
 
 Source checkpoints are retained on `codex/mc-<Minecraft version>` branches.
 Use the JAR and optional cosmetic pack matching the exact Minecraft version.
+
+## Completed versions
+
+| Minecraft | Source | Download | Checks |
+| --- | --- | --- | --- |
+| [1.21.11](1.21.11.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-1.21.11) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc1.21.11) | 7 tested |
+| [26.1](26.1.json) | [branch](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/tree/codex/mc-26.1) | [release](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1) | 7 tested |

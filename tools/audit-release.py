@@ -9,6 +9,7 @@ import zipfile
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
+TARGET = json.loads((ROOT / 'target.json').read_text())
 PERSONAL_PATH = re.compile(rb'[A-Za-z]:[\\/]+Users[\\/]+|/(?:home|Users)/', re.IGNORECASE)
 CREDENTIAL = re.compile(rb'gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]+|Bearer [A-Za-z0-9_-]{15,}|sk-[A-Za-z0-9_-]{20,}')
 PUBLIC_IDENTITY = 'TQNL <TQNL@users.noreply.github.com>'
@@ -48,7 +49,7 @@ def audit_archive(path):
     return members
 
 def main():
-    jar = ROOT / 'build/libs/redstone-numbers-0.1.3+mc1.21.11.jar'
+    jar = ROOT / ('build/libs/redstone-numbers-' + TARGET['mod_version'] + '.jar')
     require(jar.is_file(), 'Build the release JAR first.')
     with zipfile.ZipFile(jar) as archive:
         names = archive.namelist()
@@ -58,7 +59,7 @@ def main():
         require(not any(n.startswith(('work/', 'run/', 'logs/', 'saves/')) for n in names), 'Runtime data included')
         meta = json.loads(archive.read('fabric.mod.json'))
         require(meta['environment'] == 'client', 'Mod must be client-only')
-        require(meta['depends']['minecraft'] == '1.21.11', 'Wrong Minecraft target')
+        require(meta['depends']['minecraft'] == TARGET['minecraft'], 'Wrong Minecraft target')
         require(set(meta['depends']) == {'fabricloader','minecraft','java','fabric-api'}, 'Unexpected required dependency')
         require('assets/redstonenumbers/font/numbers.json' in names, 'Private font missing')
         require(not any(n.endswith('.jar') for n in names), 'Unexpected bundled library')
@@ -68,6 +69,9 @@ def main():
             ['redstone_dust_dot.png', 'redstone_dust_line0.png', 'redstone_dust_line1.png']}
         require({n[len(prefix):] for n in names if n.startswith(prefix) and not n.endswith('/')} == expected_builtin,
                 'Built-in pack violates asset allowlist')
+        builtin_metadata = json.loads(archive.read(prefix + 'pack.mcmeta'))['pack']
+        require(builtin_metadata['min_format'] == builtin_metadata['max_format'] == TARGET['resource_format'],
+                'Built-in pack targets the wrong resource format')
         icon = (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes()
         require(archive.read(meta['icon']) == icon, 'Mod icon differs from branding')
         require(archive.read(prefix + 'pack.png') == icon, 'Built-in pack icon differs from branding')
@@ -80,11 +84,14 @@ def main():
     for n in range(16):
         cell = image.crop((n % 4 * 16, n // 4 * 16, n % 4 * 16 + 16, n // 4 * 16 + 16))
         require(cell.getchannel('A').getbbox() is not None, 'Blank number artwork')
-    cosmetic = ROOT / 'outputs/TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip'
+    cosmetic = ROOT / ('outputs/TQNL-Redstone-Dust-Cosmetic-mc' + TARGET['minecraft'] + '.zip')
     with zipfile.ZipFile(cosmetic) as archive:
         expected = {'pack.mcmeta', 'pack.png', 'credits.txt', 'ASSET-LICENSES.md'} | {
             'assets/minecraft/textures/block/' + n for n in ['redstone_dust_dot.png','redstone_dust_line0.png','redstone_dust_line1.png']}
         require(set(archive.namelist()) == expected, 'Cosmetic pack violates asset allowlist')
+        cosmetic_metadata = json.loads(archive.read('pack.mcmeta'))['pack']
+        require(cosmetic_metadata['min_format'] == cosmetic_metadata['max_format'] == TARGET['resource_format'],
+                'Cosmetic pack targets the wrong resource format')
         require(archive.read('pack.png') == (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes(),
                 'Cosmetic pack icon differs from branding')
     tracked = subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard'],cwd=ROOT,text=True).splitlines()

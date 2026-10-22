@@ -1,0 +1,474 @@
+{
+  "minecraft": "26.1",
+  "mod_version": "0.1.3+mc26.1",
+  "fabric_loader": "0.19.5",
+  "scope": "Brief real-client smoke in a fresh isolated local world, fixed camera and sixteen real redstone wire powers. Not a complete compatibility or performance certification.",
+  "controls": "Computer Use keyboard input; native Minecraft F2 captures. No user worlds or account data copied.",
+  "profiles": [
+    {
+      "game": "26.1",
+      "profile": "minimal",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.09.20.png",
+          "sha256": "f5b83b5ef3de7d2b938d91e20a0f3ef2d95a5370d82452a60eba53efdfeb6da9"
+        },
+        {
+          "file": "2026-10-22_23.09.30.png",
+          "sha256": "a9f2b55d46df9d2b5402ea9362a5c069264c3f7e57797396c5ff624ba93eb1ca"
+        },
+        {
+          "file": "2026-10-22_23.09.44.png",
+          "sha256": "9d92d704300c7ff7c1be3101aa12c93c6fef202cf10f2d1e4f35a5752d30bc9d"
+        },
+        {
+          "file": "2026-10-22_23.11.23.png",
+          "sha256": "ce735580a9f6341d602bd58ea92f25c38bbea7924c63d63f8359b09ece449a60"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "minimal",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          }
+        ],
+        "visual_pack": "",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "sodium",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.12.37.png",
+          "sha256": "b584d515f7d5bfa18d4269bdd7e1cb867c62de8c4505b982268a666c6e45cd9b"
+        },
+        {
+          "file": "2026-10-22_23.12.47.png",
+          "sha256": "0f3863bf3dee7b97bc90daeafd73decac02b7f9c36d015fd5754e7bedcfeb503"
+        },
+        {
+          "file": "2026-10-22_23.13.23.png",
+          "sha256": "06d696790a929bbacfcea629d144bf105786cb728d552068913e53f216cf7002"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "sodium",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "sodium",
+            "id": "uGvVQBnw",
+            "version": "mc26.1.1-0.8.9-fabric",
+            "channel": "release",
+            "filename": "sodium-fabric-0.8.9+mc26.1.1.jar",
+            "sha256": "25ad95ba787bd7ff2a0deaf20a8f4642b91e23489d0e10933693d9963a6022f2",
+            "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uGvVQBnw/sodium-fabric-0.8.9%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "reeses-sodium-options",
+            "id": "p88Tf9YM",
+            "version": "mc26.1.1-2.0.5+fabric",
+            "channel": "release",
+            "filename": "reeses-sodium-options-fabric-2.0.5+mc26.1.1.jar",
+            "sha256": "432f60df294ff2bf6b0debeb9750115c7d27ecb548d917e6ca7e31fd40cc83b9",
+            "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/p88Tf9YM/reeses-sodium-options-fabric-2.0.5%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "modmenu",
+            "id": "ZJ6YTrMY",
+            "version": "18.0.2",
+            "channel": "release",
+            "filename": "modmenu-18.0.2.jar",
+            "sha256": "87ab58f8907dad8346ecc4500a522d66dd4c907462df5bff23c60b07caca8c96",
+            "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/ZJ6YTrMY/modmenu-18.0.2.jar"
+          }
+        ],
+        "visual_pack": "",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "iris_bsl",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.15.37.png",
+          "sha256": "dcae1de3c58de9cc08d298e842cf39eab669fed0b357edd08bafd770eebcba0e"
+        },
+        {
+          "file": "2026-10-22_23.15.47.png",
+          "sha256": "cf86849d3bc1c845d737499a5ab634ec86ab21d94d03dc9b76aabce76e7ec354"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "iris_bsl",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "sodium",
+            "id": "uGvVQBnw",
+            "version": "mc26.1.1-0.8.9-fabric",
+            "channel": "release",
+            "filename": "sodium-fabric-0.8.9+mc26.1.1.jar",
+            "sha256": "25ad95ba787bd7ff2a0deaf20a8f4642b91e23489d0e10933693d9963a6022f2",
+            "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uGvVQBnw/sodium-fabric-0.8.9%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "reeses-sodium-options",
+            "id": "p88Tf9YM",
+            "version": "mc26.1.1-2.0.5+fabric",
+            "channel": "release",
+            "filename": "reeses-sodium-options-fabric-2.0.5+mc26.1.1.jar",
+            "sha256": "432f60df294ff2bf6b0debeb9750115c7d27ecb548d917e6ca7e31fd40cc83b9",
+            "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/p88Tf9YM/reeses-sodium-options-fabric-2.0.5%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "modmenu",
+            "id": "ZJ6YTrMY",
+            "version": "18.0.2",
+            "channel": "release",
+            "filename": "modmenu-18.0.2.jar",
+            "sha256": "87ab58f8907dad8346ecc4500a522d66dd4c907462df5bff23c60b07caca8c96",
+            "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/ZJ6YTrMY/modmenu-18.0.2.jar"
+          },
+          {
+            "project": "iris",
+            "id": "MwcLS51S",
+            "version": "1.10.9+26.1-fabric",
+            "channel": "release",
+            "filename": "iris-fabric-1.10.9+mc26.1.1.jar",
+            "sha256": "aea0eefb174d19ad97a812b6de2e304f0d3abc50357b316908cf1035f1514b07",
+            "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/MwcLS51S/iris-fabric-1.10.9%2Bmc26.1.1.jar"
+          }
+        ],
+        "visual_pack": "BSL_v10.1.8.zip",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "iris_complementary",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.17.27.png",
+          "sha256": "999c5775e1d451edacbcccba81e008f2dc7487a0331ac81962527508dfa4ebc4"
+        },
+        {
+          "file": "2026-10-22_23.17.38.png",
+          "sha256": "9b34df4b12c7fecc72ce48923a320034f8316ae0e68804ac69a0f127800ebf21"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "iris_complementary",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "sodium",
+            "id": "uGvVQBnw",
+            "version": "mc26.1.1-0.8.9-fabric",
+            "channel": "release",
+            "filename": "sodium-fabric-0.8.9+mc26.1.1.jar",
+            "sha256": "25ad95ba787bd7ff2a0deaf20a8f4642b91e23489d0e10933693d9963a6022f2",
+            "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uGvVQBnw/sodium-fabric-0.8.9%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "reeses-sodium-options",
+            "id": "p88Tf9YM",
+            "version": "mc26.1.1-2.0.5+fabric",
+            "channel": "release",
+            "filename": "reeses-sodium-options-fabric-2.0.5+mc26.1.1.jar",
+            "sha256": "432f60df294ff2bf6b0debeb9750115c7d27ecb548d917e6ca7e31fd40cc83b9",
+            "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/p88Tf9YM/reeses-sodium-options-fabric-2.0.5%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "modmenu",
+            "id": "ZJ6YTrMY",
+            "version": "18.0.2",
+            "channel": "release",
+            "filename": "modmenu-18.0.2.jar",
+            "sha256": "87ab58f8907dad8346ecc4500a522d66dd4c907462df5bff23c60b07caca8c96",
+            "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/ZJ6YTrMY/modmenu-18.0.2.jar"
+          },
+          {
+            "project": "iris",
+            "id": "MwcLS51S",
+            "version": "1.10.9+26.1-fabric",
+            "channel": "release",
+            "filename": "iris-fabric-1.10.9+mc26.1.1.jar",
+            "sha256": "aea0eefb174d19ad97a812b6de2e304f0d3abc50357b316908cf1035f1514b07",
+            "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/MwcLS51S/iris-fabric-1.10.9%2Bmc26.1.1.jar"
+          }
+        ],
+        "visual_pack": "ComplementaryReimagined_r5.9.3.zip",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "voxy",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.18.58.png",
+          "sha256": "6e03c8a9a1e6d8453b331fd85e3564392770a4f5cc39d8c1658bda04334746b0"
+        },
+        {
+          "file": "2026-10-22_23.19.09.png",
+          "sha256": "aa902b35ec45ec04303453bffe13ad8325f84dfa4a687dc0a1dda0421dedf410"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "voxy",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "sodium",
+            "id": "uGvVQBnw",
+            "version": "mc26.1.1-0.8.9-fabric",
+            "channel": "release",
+            "filename": "sodium-fabric-0.8.9+mc26.1.1.jar",
+            "sha256": "25ad95ba787bd7ff2a0deaf20a8f4642b91e23489d0e10933693d9963a6022f2",
+            "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uGvVQBnw/sodium-fabric-0.8.9%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "reeses-sodium-options",
+            "id": "p88Tf9YM",
+            "version": "mc26.1.1-2.0.5+fabric",
+            "channel": "release",
+            "filename": "reeses-sodium-options-fabric-2.0.5+mc26.1.1.jar",
+            "sha256": "432f60df294ff2bf6b0debeb9750115c7d27ecb548d917e6ca7e31fd40cc83b9",
+            "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/p88Tf9YM/reeses-sodium-options-fabric-2.0.5%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "modmenu",
+            "id": "ZJ6YTrMY",
+            "version": "18.0.2",
+            "channel": "release",
+            "filename": "modmenu-18.0.2.jar",
+            "sha256": "87ab58f8907dad8346ecc4500a522d66dd4c907462df5bff23c60b07caca8c96",
+            "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/ZJ6YTrMY/modmenu-18.0.2.jar"
+          },
+          {
+            "project": "voxy",
+            "id": "tIs0IXaN",
+            "version": "0.2.15-beta",
+            "channel": "beta",
+            "filename": "voxy-0.2.15-beta+26.1.jar",
+            "sha256": "cae6913440cec1ab1ee908839300b5b47a223adcd42a2a1b547a7dc6e05af791",
+            "url": "https://cdn.modrinth.com/data/fxxUqruK/versions/tIs0IXaN/voxy-0.2.15-beta%2B26.1.jar"
+          },
+          {
+            "project": "iris",
+            "id": "MwcLS51S",
+            "version": "1.10.9+26.1-fabric",
+            "channel": "release",
+            "filename": "iris-fabric-1.10.9+mc26.1.1.jar",
+            "sha256": "aea0eefb174d19ad97a812b6de2e304f0d3abc50357b316908cf1035f1514b07",
+            "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/MwcLS51S/iris-fabric-1.10.9%2Bmc26.1.1.jar"
+          }
+        ],
+        "visual_pack": "BSL_v10.1.8.zip",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "dh",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.23.44.png",
+          "sha256": "eea6ccca2986e4ec03249062f8c655c722c22c0f2aae323d1e0bb6ee1b2a6763"
+        },
+        {
+          "file": "2026-10-22_23.23.55.png",
+          "sha256": "4157895f6b50ea23bff5be1bf280ae6ccd7aea2fd829fe5312b435029c2b744b"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "dh",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "sodium",
+            "id": "uGvVQBnw",
+            "version": "mc26.1.1-0.8.9-fabric",
+            "channel": "release",
+            "filename": "sodium-fabric-0.8.9+mc26.1.1.jar",
+            "sha256": "25ad95ba787bd7ff2a0deaf20a8f4642b91e23489d0e10933693d9963a6022f2",
+            "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uGvVQBnw/sodium-fabric-0.8.9%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "reeses-sodium-options",
+            "id": "p88Tf9YM",
+            "version": "mc26.1.1-2.0.5+fabric",
+            "channel": "release",
+            "filename": "reeses-sodium-options-fabric-2.0.5+mc26.1.1.jar",
+            "sha256": "432f60df294ff2bf6b0debeb9750115c7d27ecb548d917e6ca7e31fd40cc83b9",
+            "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/p88Tf9YM/reeses-sodium-options-fabric-2.0.5%2Bmc26.1.1.jar"
+          },
+          {
+            "project": "modmenu",
+            "id": "ZJ6YTrMY",
+            "version": "18.0.2",
+            "channel": "release",
+            "filename": "modmenu-18.0.2.jar",
+            "sha256": "87ab58f8907dad8346ecc4500a522d66dd4c907462df5bff23c60b07caca8c96",
+            "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/ZJ6YTrMY/modmenu-18.0.2.jar"
+          },
+          {
+            "project": "distanthorizons",
+            "id": "QHxoccsN",
+            "version": "3.3.3-26.1.2",
+            "channel": "release",
+            "filename": "DistantHorizons-3.3.3-26.1.2-fabric-neoforge.jar",
+            "sha256": "3df8273f35f887cc46b9faacb73372d7b9e743b764052a323d1a61bf6558bf83",
+            "url": "https://cdn.modrinth.com/data/uCdwusMi/versions/QHxoccsN/DistantHorizons-3.3.3-26.1.2-fabric-neoforge.jar"
+          }
+        ],
+        "visual_pack": "",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false,
+        "qualification": "Current DH tested with Sodium, without Iris. DH3.3.3 rejects Iris<1.11.2; DH3.3.2 calls IrisApi.isReverseZDuringShaders(), absent from the Iris1.10.9 stack supported by this Minecraft patch."
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    },
+    {
+      "game": "26.1",
+      "profile": "vulkan",
+      "jar_sha256": "c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368",
+      "actual_wire_power_assertion": true,
+      "actual_live_off_assertion": true,
+      "screenshots": [
+        {
+          "file": "2026-10-22_23.25.31.png",
+          "sha256": "de5a08ae0b2a285f2b703b44ea9ad8c6948e915d5ee854b695558c9c64535a01"
+        },
+        {
+          "file": "2026-10-22_23.25.41.png",
+          "sha256": "03dd17b8d797f810fe90c6d6cd76fc0fee1f5cdae7497db8bdd0dfe2ea605670"
+        }
+      ],
+      "composition": {
+        "game": "26.1",
+        "profile": "vulkan",
+        "inputs": [
+          {
+            "project": "fabric-api",
+            "id": "3dM0X6ou",
+            "version": "0.155.3+26.1.2",
+            "channel": "release",
+            "filename": "fabric-api-0.155.3+26.1.2.jar",
+            "sha256": "7fe7bea3dbb7b2e9ff998ab583130cd62fab22ab8a5229656ff14b2e648c91dd",
+            "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/3dM0X6ou/fabric-api-0.155.3%2B26.1.2.jar"
+          },
+          {
+            "project": "vulkanmod",
+            "id": "CEmnv55N",
+            "version": "0.6.8+26.1.2",
+            "channel": "release",
+            "filename": "VulkanMod-0.6.8+26.1.2.jar",
+            "sha256": "af5779d2a362075db53131569c5ca4992ce2efd444d987633f5db0974fcb4fef",
+            "url": "https://cdn.modrinth.com/data/JYQhtZtO/versions/CEmnv55N/VulkanMod-0.6.8%2B26.1.2.jar"
+          }
+        ],
+        "visual_pack": "",
+        "synthetic_identity": true,
+        "user_worlds_or_accounts_copied": false
+      },
+      "visual_review": "Powered 0-15 and live zero update inspected in native F2 images."
+    }
+  ],
+  "qualifications": [
+    "Voxy and DH cover near labels with the respective renderer present; distant LOD annotations are not supported or claimed.",
+    "Native text lighting, fog and depth remain owned by the renderer and visual preset.",
+    "Sodium0.8.9 rejects Iris<=1.10.8. Iris1.10.9 is pinned for the compatible published stack; no dependency override is used."
+  ],
+  "menus": {
+    "standalone_form": "Live native form with defaults verified.",
+    "vanilla_video": "RN footer button opened the settings form.",
+    "resource_packs": "Clean Redstone Lines listed under Available, disabled, with icon and complete text.",
+    "reeses": "Native boolean/integer controls displayed all four defaults in the host page."
+  }
+}

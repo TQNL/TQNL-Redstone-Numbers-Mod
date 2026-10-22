@@ -38,10 +38,33 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
   update, with server assertions and native F2 hashes in docs/compatibility/
   1.21.11.json. Final owned processes stopped. Artifact/privacy audit passes;
   all4561 installed files unchanged, none missing.
-- Next: push1.21.11 checkpoint, then port26.1. Official runtime metadata for
-  26.1/26.1.1/26.1.2/26.2 acquired; no later-version build started yet.
+- Pushed1.21.11 checkpoint a2cc06b to main and codex/mc-1.21.11.
+- Current branch codex/mc-26.1: Java25/unobfuscated Loom, renamed native
+  LevelRenderEvents.COLLECT_SUBMITS, level render state, GUI extraction and
+  Fabric screen/key/resource APIs. No new render hooks. Native text geometry,
+  defaults and artwork retained. target.json centralizes target dependencies.
+- 26.1 build/audit passes; test remains NO-SOURCE. Cosmetic and built-in format84.0.
+  All seven real-client powered/zero profiles pass, with DH using Sodium without
+  Iris. Native settings/pack checks below pass. All owned clients stopped;
+  all4561 installed files unchanged. Official runtime metadata acquired for every target.
+- 26.1/26.1.1 supported pins: Sodium0.8.9, Reese's2.0.5, Iris1.10.9. Sodium
+  explicitly rejects Iris<=1.10.8. DH3.3.3 rejects Iris<1.11.2; DH3.3.2 then crashed on the absent
+  IrisApi.isReverseZDuringShaders method. Testing current DH without Iris for
+  these two patches; record the Iris pair unavailable rather than add adapters. For26.1.2 Voxy0.2.18
+  requires Sodium0.9.1; private profile pinned with Iris1.11.3/Reese's2.2.3.
+- Original work/qa also moved to D: with a workspace junction to free storage;
+  private launch paths remain valid. Empty partial-move residue retained under
+  work/qa-move-residue (empty qa.py and empty repro-checkout/.git directories).
+  Automatic approval review blocked deletion; no user data or device setting affected.
+- 26.1 initial synthetic world failed because the native saved-data/player files
+  moved out of level.dat. Updated private fixtures from native storage code;
+  final minimal retry passes powered/zero visuals. Native settings form, vanilla
+  Video Settings RN shortcut and default-off built-in pack menu verified live.
+- 26.1 JAR SHA256 c898a9750d393ffb20fe9e291c2c289b47f0352cdc5c9a58850cd398885f6368.
+  docs/compatibility/26.1.json records exact inputs, visuals and menu checks.
+- Next: push/publish26.1, verify public downloads, then26.1.1 build and smoke.
 
-## Current update checkpoint: 0.1.3
+## 1.21.11 update checkpoint: 0.1.3
 
 - User requests no pack hover popup, no obsolete compatibility wording in the
   mod/pack, and actual native Sodium-style settings instead of an external form.

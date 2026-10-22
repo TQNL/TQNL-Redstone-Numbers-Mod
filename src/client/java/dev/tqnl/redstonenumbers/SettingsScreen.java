@@ -1,7 +1,7 @@
 package dev.tqnl.redstonenumbers;
 
 import java.nio.file.Path;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.EditBox;
@@ -113,15 +113,15 @@ public final class SettingsScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        super.render(graphics, mouseX, mouseY, partialTick);
-        graphics.drawCenteredString(font, title, width / 2, top - 30, 0xFFFFFFFF);
-        graphics.drawString(font, Component.translatable("screen.redstonenumbers.range"), left, top + 34, 0xFFFFFFFF);
-        graphics.drawString(font, Component.translatable("screen.redstonenumbers.limit"), left, top + 62, 0xFFFFFFFF);
-        graphics.drawString(font, Component.translatable("screen.redstonenumbers.scale"), left, top + 90, 0xFFFFFFFF);
+    public void extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
+        super.extractRenderState(graphics, mouseX, mouseY, partialTick);
+        graphics.centeredText(font, title, width / 2, top - 30, 0xFFFFFFFF);
+        graphics.text(font, Component.translatable("screen.redstonenumbers.range"), left, top + 34, 0xFFFFFFFF);
+        graphics.text(font, Component.translatable("screen.redstonenumbers.limit"), left, top + 62, 0xFFFFFFFF);
+        graphics.text(font, Component.translatable("screen.redstonenumbers.scale"), left, top + 90, 0xFFFFFFFF);
         Component status = Component.translatable(saveFailed ? "screen.redstonenumbers.save_error"
                 : valid ? "screen.redstonenumbers.preview" : "screen.redstonenumbers.invalid");
-        graphics.drawWordWrap(font, status, left, top + 114, 300,
+        graphics.textWithWordWrap(font, status, left, top + 114, 300,
                 saveFailed || !valid ? 0xFFFF9999 : 0xFFBBBBBB);
     }
 
