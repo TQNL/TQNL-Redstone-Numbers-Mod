@@ -40,13 +40,15 @@ def audit_archive(path):
             label = path.name + '!' + name
             data = archive.read(name)
             audit_privacy(name.encode('utf-8') + b'\n' + data, label)
+            if name.lower().endswith(('.json', '.mcmeta', '.md', '.txt', '.java')):
+                require(b'shader' not in data.lower(), 'Obsolete wording in packaged text: ' + label)
             if name.lower().endswith('.png'):
                 audit_png(data, label)
             members += 1
     return members
 
 def main():
-    jar = ROOT / 'build/libs/redstone-numbers-0.1.2+mc1.21.11.jar'
+    jar = ROOT / 'build/libs/redstone-numbers-0.1.3+mc1.21.11.jar'
     require(jar.is_file(), 'Build the release JAR first.')
     with zipfile.ZipFile(jar) as archive:
         names = archive.namelist()

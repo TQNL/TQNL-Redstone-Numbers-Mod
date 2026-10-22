@@ -13,7 +13,7 @@ relicense third-party artwork.
 Changes for this mod: sampled number regions are cropped, nearest-neighbour
 scaled into uniform cells, and arranged as a private bitmap font. No original
 visible glyph pixels are redesigned. The optional cosmetic pack contains only
-the three selected dust textures, without number models or shaders.
+the three selected dust textures, without number models.
 
 The mod is a free community modification, not an official Minecraft product.
 It is not approved by or associated with Mojang or Microsoft.

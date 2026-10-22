@@ -18,8 +18,9 @@
   "screen.redstonenumbers.preview": "Wijzigingen zijn direct zichtbaar. Gereed slaat op; Annuleren zet terug.",
   "screen.redstonenumbers.invalid": "Gebruik afstand 1–128, aantal 1–65536 en grootte 0.25–4.",
   "screen.redstonenumbers.save_error": "Opslaan is mislukt. Je wijzigingen blijven voorlopig zichtbaar.",
-  "pack.redstonenumbers.clean_lines.title": "Redstone Numbers: strakke lijnen",
-  "pack.redstonenumbers.clean_lines.description": "Optionele redstonestoftexturen met strakke lijnen. Geen shaders.",
+  "pack.redstonenumbers.clean_lines.title": "Strakke redstonelijnen",
+  "pack.redstonenumbers.clean_lines.description": "Strak redstonestof.",
   "screen.redstonenumbers.video_button": "RN",
-  "screen.redstonenumbers.video_button.tooltip": "Redstone Numbers-instellingen"
+  "screen.redstonenumbers.video_button.tooltip": "Redstone Numbers-instellingen",
+  "screen.redstonenumbers.options": "Instellingen"
 }

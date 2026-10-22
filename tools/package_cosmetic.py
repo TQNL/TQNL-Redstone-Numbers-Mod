@@ -13,7 +13,7 @@ def build():
     cosmetic = output / 'TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip'
     members = {
         'pack.mcmeta': json.dumps({'pack': {'min_format': [75, 0], 'max_format': [75, 0],
-            'description': 'Optional redstone dust textures only. No numbers or shaders.'}}, indent=2).encode(),
+            'description': 'Clean-line redstone dust textures.'}}, indent=2).encode(),
         'credits.txt': (ROOT / 'credits.txt').read_bytes(),
         'pack.png': (ROOT / 'src/main/resources/assets/redstonenumbers/icon.png').read_bytes(),
         'ASSET-LICENSES.md': (ROOT / 'ASSET-LICENSES.md').read_bytes(),

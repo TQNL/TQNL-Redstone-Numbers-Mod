@@ -4,22 +4,20 @@ Client-only redstone power labels for **Minecraft Java 1.21.11**. The sixteen
 number glyphs face the camera and sit just above each wire. Minecraft's ordinary
 world-text renderer supplies depth testing and local lighting.
 
-[Download the 1.21.11 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.2-mc1.21.11)
+[Download the 1.21.11 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc1.21.11)
 (JAR, optional cosmetic pack and checksums).
 
-This mod does not replace terrain, sky, water or other scene shaders. It needs
-**Fabric Loader 0.19.5+ and Fabric API 0.141.6+1.21.11**. Sodium, Iris, Voxy and
-configuration libraries are not required. Other Minecraft versions are not
+Requires **Fabric Loader 0.19.5+ and Fabric API 0.141.6+1.21.11**. Sodium, Iris,
+Voxy and configuration libraries are optional. Other Minecraft versions are not
 implemented in this milestone.
 
 ## Installation
 
 Put the versioned mod JAR in the instance's `mods` folder alongside Fabric API.
-Disable the old Core/Iris/Plain number resource packs and companion number shader
-when using this mod; they would add duplicate labels or retain old shader changes.
-Choose whichever ordinary resource pack and optional Iris shader you prefer.
+Disable other packs that already draw redstone power numbers to avoid duplicate
+labels. Ordinary texture packs can be used alongside this mod.
 
-The mod includes **Redstone Numbers: Clean Lines** in Minecraft's **Resource
+The mod includes **Clean Redstone Lines** in Minecraft's **Resource
 Packs** menu. It starts disabled. Move it to Selected and choose Done to use the
 same clean-line redstone textures as the earlier packs; move it back to disable.
 Only three dust textures change. Numbers work with either choice.
@@ -41,15 +39,16 @@ pack icon, which is also shown for the mod.
 }
 ```
 
-Open **Video Settings > Redstone Numbers** with Sodium's supported config API
-(choose its **Options** row if your layout shows one). Reese's Sodium Options
-shows a compact tab with the TQNL icon. Without Sodium, use the small **RN**
-button on the video settings screen. Mod Menu also provides
-**Mods > Redstone Numbers > Configure**. Neither Sodium nor Mod Menu is required.
+Open **Video Settings > Redstone Numbers** in Sodium or Reese's Sodium Options
+(choose **Settings** if your layout shows a page row). The host draws its own checkbox and sliders and handles pending
+edits, **Apply** and **Undo**. All four options use Sodium's supported config API;
+there is no separate form or UI implementation for a Sodium-style menu.
 
-The native settings screen previews valid edits immediately. **Done** saves;
-**Cancel** or Escape restores the opening values; **Reset** previews the lighter
-defaults. No extra configuration library is required.
+Without Sodium, use the small **RN** button on the video settings screen. Mod Menu
+also provides **Mods > Redstone Numbers > Configure**. This standalone form
+previews valid edits immediately: **Done** saves, **Cancel** or Escape restores
+the opening values, and **Reset** previews defaults. Neither Sodium nor Mod Menu
+is required, and no extra configuration library is used.
 
 Assign **Open Redstone Numbers settings** in Controls for direct access. Both
 that key and **Toggle Redstone Numbers** start unbound. The toggle's state is saved.
@@ -60,15 +59,12 @@ Range is limited to 1-128 blocks, label count to 1-65,536, and scale to 0.25-4.
 Nearby visible labels are prioritized when the configured limit is reached.
 Initial discovery is spread across ticks to avoid a large loading spike.
 
-The original quarter-block glyph size and local lighting are retained. Labels
-now sit closer to the actual dust plane, matching the old shader's grounded
-appearance more closely. Native depth still requires a small physical lift;
-the old shader's exact depth correction and distance filtering are not reproduced.
+The quarter-block glyph size and local lighting are retained. Labels sit just
+above the dust surface and face the camera, using normal depth and fog.
 
 Numbers show the latest blockstates received by the client, including unpowered
 zero. They do not simulate server redstone or display unreceived sub-tick pulses.
-Opaque blocks occlude them; optional shader packs may apply their ordinary text
-lighting and fog. No special through-wall display is used.
+Opaque blocks occlude the labels; normal text lighting and fog apply.
 
 ## Build
 
@@ -93,12 +89,12 @@ The mod keeps a nearby wire-position index, observes successful client block
 changes, extracts immutable label data, and submits native text. It introduces
 no artificial entities, server packets, terrain rebuilds or custom GPU pipelines.
 
-The [0.1.2 update](docs/update-0.1.2.md) covers video settings integration,
-built-in pack access and icons, including the tested screen versions and limits.
+The [0.1.3 update](docs/update-0.1.3.md) covers native video options and compact
+resource-pack text, including the tested versions and limits.
 The [0.1.1 update and measurements](docs/update-0.1.1.md) cover the lower placement,
 Mod Menu settings, lighter defaults and brief controlled profiles in Minecraft.
 The [0.1.0 verification](docs/verification.md) records the earlier full renderer
-matrix, including Iris shaders, Distant Horizons and VulkanMod. Exact versions,
+matrix, including Iris, Distant Horizons and VulkanMod. Exact versions,
 screenshots and limits are kept with their tested milestone.
 Project decisions and the current milestone are maintained in [notes.md](notes.md).
 

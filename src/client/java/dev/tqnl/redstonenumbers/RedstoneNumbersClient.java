@@ -82,6 +82,14 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
         LOGGER.info("Redstone Numbers ready: ordinary world text, range {}, limit {}", config.range, config.maxLabels);
     }
 
+    static ModConfig config() {
+        return config;
+    }
+
+    static void saveConfig() {
+        config.save(configPath);
+    }
+
     public static Screen createSettingsScreen(Screen parent) {
         return new SettingsScreen(parent, config, configPath);
     }

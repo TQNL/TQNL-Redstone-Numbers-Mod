@@ -28,7 +28,7 @@ public final class NumberRenderer {
     private static final float GLYPH_HEIGHT = 16.0F;
     private static final float BLOCK_SIZE = 0.25F;
     private static final float VISIBLE_GLYPH_HEIGHT = 12.0F;
-    // The old shader used Y=0.251/16, just above the dust mesh at Y=0.25/16.
+    // The dust surface is at Y=0.25/16; the label anchor starts just above it.
     // Use that anchor with a small physical clearance, rather than the wire's collision height.
     private static final double SURFACE_CLEARANCE = 0.251 / 16.0 + 1.0 / 512.0;
     private List<Glyph> glyphs;

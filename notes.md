@@ -5,11 +5,50 @@
 Minecraft Java 1.21.11 only. Add a compact Sodium video settings entry using
 its official config API and a native entry for other video settings screens.
 Bundle the installed clean-line dust textures as an optional built-in pack,
-disabled by default. Reuse previous shader pack branding for mod and pack icons.
+disabled by default. Reuse previous resource-pack branding for mod and pack icons.
 Keep rendering untouched, preserve installed content, use Git/public identity,
 and verify the requested menus and pack in isolated Computer Use sessions.
 
-## Current update checkpoint: 0.1.2
+## Current update checkpoint: 0.1.3
+
+- User requests no pack hover popup, no obsolete compatibility wording in the
+  mod/pack, and actual native Sodium-style settings instead of an external form.
+- Fabric source explains popup: title wider than151/157px or extended description
+  over two rows. Shorten pack metadata to fit; no tooltip mixin or UI replacement.
+- Replace Sodium external page with supported boolean/integer option builders.
+  Native host owns styling, search, pending edits, Apply/Undo. Keep optional
+  API and existing standalone form for vanilla/Mod Menu/key access.
+- Number-size slider uses hundredths (25..400), preserving config field/bounds.
+  Existing rendering, defaults, pack ID, icons and optional activation stay.
+- Implemented native API controls with a shared storage callback. Build/audit
+  pass, including a packaged-text guard against obsolete compatibility wording.
+  NumberRenderer and WireIndex bytecode match0.1.2 exactly.
+- Reese's2.2.3/Sodium0.8.12 live checks: host-style checkbox/sliders; pending
+  checkbox leaves saved JSON unchanged; Undo restores; Apply persists all four
+  controls (false/30/10385/1.15). Private work/qa/v013-native-options-result.json.
+- English pack title/extended description fit completely; direct hover shows
+  no Fabric truncation popup. No tooltip hook/mixin added. Native screenshots
+  docs/images/v013-{reeses-native,pack-hover}.png. Owned actual client closed.
+- Stock Sodium0.8.12 Java21 without Mod Menu displays the native page correctly.
+  Dutch pack hover also has complete text/no popup. Native screenshots added as
+  docs/images/v013-{sodium-native,pack-hover-nl}.png. Both clients cleanly saved
+  and closed; private configs restored. No more runtime tests planned.
+- Preservation comparison: all4561 installed files unchanged, none missing;
+  no owned test clients remain. Private receipts preservation-{before,after}-v013
+  and owned-process-final-v013 under work/qa. No device settings changed.
+- docs/update-0.1.3.md and docs/verification-0.1.3.json record source/runtime
+  evidence and limitations. Current packaged text, attribution and README have
+  been cleaned; historical verification documents remain historical.
+- Final build/review and artifact/privacy audit pass (85 public files,62 archive
+  members). Final JAR SHA256:
+  b1977e0f61df6a86c27fb9b172d85b209b1a0cda99cd72a3adc8f4a2ad839845.
+  Cosmetic ZIP SHA256:
+  e81a6437e1fefcf4fcdc6c6f477cf63b2cb95dedac32d061b99210d39ac5c8ec.
+- Gradle daemon and QA watchdogs stopped; no outstanding device/workspace cleanup.
+- Next: commit/push and publish/hash-check0.1.3. Remain on Minecraft1.21.11 only;
+  no extra profiling or automatic continuation.
+
+## Released 0.1.2
 
 - Started from released0.1.1 at bff7552a23ea06998e57221621e518619ec603fb.
 - Optional Sodium external page uses the supplied official config API, compiled

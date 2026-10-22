@@ -1,0 +1,43 @@
+{
+  "version": "0.1.3+mc1.21.11",
+  "artifacts": {
+    "redstone-numbers-0.1.3+mc1.21.11.jar": {
+      "bytes": 1800845,
+      "sha256": "b1977e0f61df6a86c27fb9b172d85b209b1a0cda99cd72a3adc8f4a2ad839845"
+    },
+    "TQNL-Redstone-Dust-Cosmetic-mc1.21.11.zip": {
+      "bytes": 876696,
+      "sha256": "e81a6437e1fefcf4fcdc6c6f477cf63b2cb95dedac32d061b99210d39ac5c8ec"
+    }
+  },
+  "required_dependencies_unchanged": true,
+  "native_sodium_controls": [
+    "boolean enabled",
+    "integer range",
+    "integer maxLabels",
+    "integer scale hundredths"
+  ],
+  "reese_pending_does_not_save": true,
+  "reese_undo_restores": true,
+  "reese_apply_all_four_readback": {
+    "enabled": false,
+    "range": 30,
+    "maxLabels": 10385,
+    "scale": 1.15
+  },
+  "stock_sodium_native_controls": true,
+  "pack_hover_no_popup_locales": [
+    "en_us",
+    "nl_nl"
+  ],
+  "obsolete_compatibility_wording_absent_from_artifact_text": true,
+  "renderer_and_wire_index_bytecode_identical_to_0_1_2": true,
+  "new_performance_benchmark": false,
+  "unit_tests": "NO-SOURCE",
+  "preservation": {
+    "checked_installed_files": 4561,
+    "changed": 0,
+    "missing": 0
+  },
+  "owned_test_clients_stopped": true
+}
