@@ -55,5 +55,43 @@
     "No new full renderer/performance matrix; rendering bytecode is unchanged.",
     "Initial1.21.11 desktop-capture attempt crashed in native GLFW; successful Java21/text-only native-F2 retry completed the form checks."
   ],
-  "pack_visibility": "Only redstonenumbers:clean_lines; defaults visible and inactive. Restart required. Existing user packs and textures are unaffected."
+  "pack_visibility": "Only redstonenumbers:clean_lines; defaults visible and inactive. Restart required. Existing user packs and textures are unaffected.",
+  "published_releases": [
+    {
+      "minecraft": "1.21.11",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc1.21.11",
+      "source": "0c56eb2cf7b7bb80d491c252444dbfa64553d140",
+      "public_downloads_verified": 3
+    },
+    {
+      "minecraft": "26.1",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.1",
+      "source": "6704c5d619d7bec88f0de631da9abcb4a32f0d05",
+      "public_downloads_verified": 3
+    },
+    {
+      "minecraft": "26.1.1",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.1.1",
+      "source": "ca7373b2593cf79f40b40c831ed88429e347618e",
+      "public_downloads_verified": 3
+    },
+    {
+      "minecraft": "26.1.2",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.1.2",
+      "source": "0454f33ab15a0ccf0f3a7b4c2a21f575b36f7e12",
+      "public_downloads_verified": 3
+    },
+    {
+      "minecraft": "26.2",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.2",
+      "source": "502e9c9297b11f934ee89cbe1327d8dce4097fc3",
+      "public_downloads_verified": 3
+    },
+    {
+      "minecraft": "26.3",
+      "url": "https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.3",
+      "source": "a08075d71e0603d4b2f21f451e21f328d460e254",
+      "public_downloads_verified": 3
+    }
+  ]
 }

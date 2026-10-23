@@ -35,10 +35,10 @@ settings comparison is superseded by this explicit implementation request.
 ## Verification
 
 All six builds/artifact privacy audits pass; test NO-SOURCE. All output JARs
-checked to exclude deleted shortcut class and translation keys. Live tests starting.
+checked to exclude deleted shortcut class and translation keys. Live checks below completed.
 1.21.11 live command opens the five-control form. Legacy JSON missing the new
 field displays ON. Preview OFF then Escape cancels; reopening shows ON. Done
-saves showBuiltinPack=false correctly. Restart/pack-list check next. First Java25
+saves showBuiltinPack=false correctly. Restart/list verification is covered on26.3 below. First Java25
 desktop-capture attempt crashed in native GLFW; Java21/text-only + F2 retry works.
 26.3 Sodium/Reese's client: command opens the form, default pack is visibly
 Available and disabled, and OFF saves correctly. After restart, Resource Packs
@@ -58,9 +58,11 @@ runtimes and blocked empty folders remain documented in the sections below.
 
 ## Next steps
 
-Build and live verification completed as described above. Publish all six0.1.4
-versions, verify public downloads, recheck repaired native pack preservation,
-then stop the task's Gradle daemon and record the completed checkpoint.
+Completed. All six0.1.4releases pushed/published;18 public assets independently
+downloaded and rehashed. docs/update-0.1.4.json includes release/source receipts.
+Final repaired native pack hash unchanged; normal instance was not updated or
+restarted during this code task. Task Gradle daemon stopped, new disposable clients
+removed. No further action scheduled.
 
 ## Completed local test launcher
 
@@ -480,4 +482,3 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
 - Milestone implementation and publication finished. Performance qualification
   above remains explicit; no5%certification claimed. Stop at1.21.11. No further
   implementation, version port or automatic continuation is scheduled.
-
