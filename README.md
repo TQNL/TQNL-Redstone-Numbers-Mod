@@ -69,6 +69,10 @@ Opaque blocks occlude the labels; normal text lighting and fog apply.
 
 ## Build
 
+For local interactive testing, double-click **Launch Test Instance.cmd**.
+The [test launcher guide](docs/test-launcher.md) explains the mod picker, presets,
+separate test saves and required local QA caches.
+
 Use JDK 25 to run the pinned Gradle build; output targets Java 25:
 
 ```sh

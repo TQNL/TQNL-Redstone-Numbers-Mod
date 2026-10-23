@@ -1,5 +1,85 @@
 # Redstone Numbers standalone mod
 
+## Objective
+
+Create a local test-instance launcher with a mod picker and presets, using the
+prepared runtimes from this project. Default target1.21.11; expose the other five
+prepared stable targets too. Completed. No normal-instance changes or account-data reads.
+
+## Constraints
+
+Use tested preset pins; keep Fabric API and the matching standalone mod required.
+Custom selection can use installed top-level Fabric JARs or explicitly added JARs.
+Keep saves/configuration in named isolated test instances; no QA time-limit kill.
+
+## Current state
+
+Implemented tools/test_launcher.py, Launch Test Instance.cmd, the guide at
+docs/test-launcher.md and tools/test_test_launcher.py. Version/preset controls,
+searchable mod checkboxes, added JARs/new-build replacement, RAM selection,
+dependency checking, persistent isolated instances and remembered selection.
+Read prepared runtime descriptors and synthetic fixture metadata, never real worlds.
+Existing uncommitted normal-instance notes preserved.
+
+## Verification
+
+All three integration checks pass:40 prepared presets plus installed selection,
+Voxy dependency auto-selection, renderer/version conflict rejection, instance
+path boundaries, save reuse and refusal to overwrite edited copied JARs. Older
+nested Fabric API inside DH correctly yields to the newer external API.
+GUI verification completed: selected Sodium/native settings plus AppleSkin via
+checkbox, launched6 JARs, inspected native powered0-15/zero images. Duplicate
+live-instance launch rejected. Fixed missing options-version header, then launched
+a fresh Minimal instance directly into its fixture with no Welcome screen.
+Both games saved and stopped. Windows .cmd entry point opened the picker correctly.
+Artifact/privacy audit passes; mod source/JAR unchanged by this helper.
+
+## Outstanding cleanup
+
+Earlier blocked empty folders remain documented below. Retained QA runtimes are
+needed by this requested launcher; preserve shared work/qa/cache and
+work/multi-version/runtime. User-created launcher instances remain until removed
+by the user. Both launcher-smoke verification instances are now removed; no test
+game or picker process remains. work/multi-version/test-launcher/verification
+retains two native images and a compact results.json to substantiate the GUI test;
+remove these when the next launcher validation supersedes them. The small
+picker.json retains defaults (1.21.11 / Minimal / testing). No new cleanup failure.
+Prepared clients' mod JARs/profile.json and minimal fixture metadata/datapacks are
+also launcher inputs; retain them while using the picker, remove when it is retired.
+
+## Next steps
+
+Double-click Launch Test Instance.cmd; choose a preset/mod selection and Launch.
+See docs/test-launcher.md for adding fresh mod builds and the local runtime-cache
+dependency. No automatic continuation or mod release publication is scheduled.
+
+## Normal-instance migration: 2026-10-23
+
+- User authorizes replacing legacy number packs in the normal .minecraft root,
+  installing the1.21.11 standalone mod and latest compatible Voxy/SeedGen, then
+  launching the existing Fabric profile through Minecraft Launcher and testing.
+- Installed published0.1.3+mc1.21.11 (SHA256 b1977e0f61df6a86c27fb9b172d85b209b1a0cda99cd72a3adc8f4a2ad839845).
+  Fresh publisher copies of Voxy0.2.16-beta and SeedGen0.3.0 remain latest for
+  this target; their existing versions already matched. Sodium0.8.12 retained.
+- Six legacy Facing Numbers packs removed, old .vah-backup removed; originals
+  backed up outside the instance in work/multi-version/normal-instance-20261023/
+  backup. Recovery manifest and migration receipt are beside it. No accounts copied.
+- Removed37 legacy number/dust members from TQNL Vanilla Tweaks.zip;161 unrelated
+  members byte-identical. Removed old selected-pack and Iris pack references.
+- Empty resourcepacks/core shader versions remains: rmdir got WinError5 and
+  native removal was blocked by automatic approval review. No files remain there.
+- Official Launcher Play used the existing normal Fabric1.21.11/Loader0.19.5
+  profile and Java25. Live client loaded242 mods. Native F2 screenshots verify
+  all sixteen labels0-15 and live zero update from an overhead test-world view.
+  Voxy render system created; SeedGen completed a real noise-terrain fill.
+  Initial SeedGen fill briefly slowed rendering; nonfatal Voxy node warnings
+  remain. This is a brief smoke test, not a performance certification.
+- Saved/quit to title and left the normal client open there. All44 existing
+  world level.dat hashes unchanged. Final scan found no legacy pack/number-model
+  members. Fresh test world,12 screenshots and3 generated per-world configs moved
+  outside the instance under the same private work folder. No user worlds removed.
+  Private test-receipt.json, cleanup-receipt.json and evidence/ record the result.
+
 ## Objective and scope
 
 User now explicitly authorizes every stable Minecraft release from1.21.11 through
