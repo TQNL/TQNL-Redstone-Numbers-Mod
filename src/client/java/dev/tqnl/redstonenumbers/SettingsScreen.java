@@ -37,7 +37,7 @@ public final class SettingsScreen extends Screen {
     @Override
     protected void init() {
         left = width / 2 - 150;
-        top = Math.max(42, height / 2 - 77);
+        top = Math.max(34, height / 2 - 91);
         addRenderableWidget(CycleButton.onOffBuilder(config.enabled)
                 .withTooltip(value -> Tooltip.create(Component.translatable("screen.redstonenumbers.enabled.help")))
                 .create(left, top, 300, 20, Component.translatable("screen.redstonenumbers.enabled"),
@@ -45,6 +45,10 @@ public final class SettingsScreen extends Screen {
         range = numberBox("range", Integer.toString(config.range), top + 28);
         limit = numberBox("limit", Integer.toString(config.maxLabels), top + 56);
         scale = numberBox("scale", Float.toString(config.scale), top + 84);
+        addRenderableWidget(CycleButton.onOffBuilder(config.showBuiltinPack)
+                .withTooltip(value -> Tooltip.create(Component.translatable("screen.redstonenumbers.show_pack.help")))
+                .create(left, top + 112, 300, 20, Component.translatable("screen.redstonenumbers.show_pack"),
+                        (button, value) -> config.showBuiltinPack = value));
         done = addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, button -> {
             if (config.save(path)) {
                 accepted = true;
@@ -52,14 +56,14 @@ public final class SettingsScreen extends Screen {
             } else {
                 saveFailed = true;
             }
-        }).bounds(left, top + 146, 96, 20).build());
+        }).bounds(left, top + 174, 96, 20).build());
         addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, button -> onClose())
-                .bounds(left + 102, top + 146, 96, 20).build());
+                .bounds(left + 102, top + 174, 96, 20).build());
         addRenderableWidget(Button.builder(Component.translatable("screen.redstonenumbers.reset"), button -> {
             config.copyFrom(new ModConfig());
             saveFailed = false;
             rebuildWidgets();
-        }).bounds(left + 204, top + 146, 96, 20)
+        }).bounds(left + 204, top + 174, 96, 20)
                 .tooltip(Tooltip.create(Component.translatable("screen.redstonenumbers.reset.help"))).build());
         range.setResponder(value -> preview());
         limit.setResponder(value -> preview());
@@ -121,7 +125,7 @@ public final class SettingsScreen extends Screen {
         graphics.text(font, Component.translatable("screen.redstonenumbers.scale"), left, top + 90, 0xFFFFFFFF);
         Component status = Component.translatable(saveFailed ? "screen.redstonenumbers.save_error"
                 : valid ? "screen.redstonenumbers.preview" : "screen.redstonenumbers.invalid");
-        graphics.textWithWordWrap(font, status, left, top + 114, 300,
+        graphics.textWithWordWrap(font, status, left, top + 142, 300,
                 saveFailed || !valid ? 0xFFFF9999 : 0xFFBBBBBB);
     }
 

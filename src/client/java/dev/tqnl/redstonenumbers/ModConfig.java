@@ -13,6 +13,7 @@ public final class ModConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public boolean enabled = true;
+    public boolean showBuiltinPack = true;
     public int range = 16;
     public int maxLabels = 1024;
     public float scale = 1.0F;
@@ -50,6 +51,7 @@ public final class ModConfig {
 
     public void copyFrom(ModConfig other) {
         enabled = other.enabled;
+        showBuiltinPack = other.showBuiltinPack;
         range = other.range;
         maxLabels = other.maxLabels;
         scale = other.scale;
