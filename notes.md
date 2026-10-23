@@ -13,30 +13,54 @@ Use Fabric's client command API with no server permissions. Open on the next
 client tick so chat cannot immediately close the form. Pack visibility applies
 on restart through normal Fabric registration; no added menu/render hooks.
 Pack activation remains default-off. Preserve user source notes and normal worlds.
+Preserve all existing user resource packs and native cosmetic assets. Earlier
+migration incorrectly stripped three pre-existing clean dust textures alongside
+obsolete number assets. Those originals were restored by the user's other task;
+verified current TQNL Vanilla Tweaks ZIP SHA256
+b629c7f615631ac5aeb8d8566710703853dc6b61b9c2db0c31855759211abafe and all three
+PNGs match the original backup. Visibility affects only redstonenumbers:clean_lines.
+Repaired current baseline: work/multi-version/settings-update/repaired-instance-baseline.json.
 
 ## Current state
 
 Branch codex/settings-command-pack-visibility, based on completed26.3main.
-Shared implementation compiles on26.3. Added fifth setting to native forms and
+Shared implementation compiles on all six targets. Added fifth setting to native forms and
 Sodium with REQUIRES_GAME_RESTART; deleted VideoSettingsIntegration.java and its
-translation keys. Remaining version ports, artifact checks and live UI checks.
+translation keys. All version ports and artifact checks completed.
+Audited0.1.4 artifacts: outputs/settings-0.1.4/<game>/. Per-target source commits
+are on codex/settings-mc-<game> (26.3 uses the current shared branch).
 New private work: work/multi-version/settings-update/. Earlier research-only
 settings comparison is superseded by this explicit implementation request.
 
 ## Verification
 
-26.3 first build passes; test NO-SOURCE. No new in-game verification yet.
+All six builds/artifact privacy audits pass; test NO-SOURCE. All output JARs
+checked to exclude deleted shortcut class and translation keys. Live tests starting.
+1.21.11 live command opens the five-control form. Legacy JSON missing the new
+field displays ON. Preview OFF then Escape cancels; reopening shows ON. Done
+saves showBuiltinPack=false correctly. Restart/pack-list check next. First Java25
+desktop-capture attempt crashed in native GLFW; Java21/text-only + F2 retry works.
+26.3 Sodium/Reese's client: command opens the form, default pack is visibly
+Available and disabled, and OFF saves correctly. After restart, Resource Packs
+contains only the standard entries: Clean Redstone Lines is absent. Native F2
+before/after images substantiate pack visibility. Command also works on26.3.
+No claim of a new live test on the four intermediate targets; their builds/audits pass.
 
 ## Outstanding cleanup
 
-Use isolated test clients. Retain necessary migration backups from earlier work;
-remove newly created disposable client worlds after UI checks. Existing retained
+Both new disposable settings-test clients were stopped and removed. Retained only
+four essential native images and compact build/live/config receipts under
+work/multi-version/settings-update/evidence/ and live-checks.json to substantiate
+this release; no large test environment remains from this update. Keep these
+compact receipts with the release; no temporary helper service remains.
+Retain necessary migration backups from earlier work. Existing retained
 runtimes and blocked empty folders remain documented in the sections below.
 
 ## Next steps
 
-Build all six target artifacts; verify command, defaults, save/cancel/reset and
-pack listed/hidden across restarts in real clients. Record exact limits/results.
+Build and live verification completed as described above. Publish all six0.1.4
+versions, verify public downloads, recheck repaired native pack preservation,
+then stop the task's Gradle daemon and record the completed checkpoint.
 
 ## Completed local test launcher
 
@@ -104,8 +128,10 @@ dependency. No automatic continuation or mod release publication is scheduled.
 - Six legacy Facing Numbers packs removed, old .vah-backup removed; originals
   backed up outside the instance in work/multi-version/normal-instance-20261023/
   backup. Recovery manifest and migration receipt are beside it. No accounts copied.
-- Removed37 legacy number/dust members from TQNL Vanilla Tweaks.zip;161 unrelated
-  members byte-identical. Removed old selected-pack and Iris pack references.
+- Migration initially removed37 number/dust members, incorrectly including three
+  pre-existing native cosmetic textures. Those three originals have since been
+  restored and verified; they are not disposable legacy number assets. Only the
+  obsolete number component and standalone legacy pack references stay removed.
 - Empty resourcepacks/core shader versions remains: rmdir got WinError5 and
   native removal was blocked by automatic approval review. No files remain there.
 - Official Launcher Play used the existing normal Fabric1.21.11/Loader0.19.5

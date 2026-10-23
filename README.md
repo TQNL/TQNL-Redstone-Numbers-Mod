@@ -100,6 +100,8 @@ The mod keeps a nearby wire-position index, observes successful client block
 changes, extracts immutable label data, and submits native text. It introduces
 no artificial entities, server packets, terrain rebuilds or custom GPU pipelines.
 
+The [0.1.4 update](docs/update-0.1.4.md) covers the settings command and optional
+built-in pack listing, including restart behavior and verification scope.
 The [0.1.3 update](docs/update-0.1.3.md) covers native video options and compact
 resource-pack text, including the tested versions and limits.
 The [0.1.1 update and measurements](docs/update-0.1.1.md) cover the lower placement,
