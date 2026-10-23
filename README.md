@@ -4,7 +4,7 @@ Client-only redstone power labels for **Minecraft Java 26.1.1**. The sixteen
 number glyphs face the camera and sit just above each wire. Minecraft's ordinary
 world-text renderer supplies depth testing and local lighting.
 
-[Download the 26.1.1 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.3-mc26.1.1)
+[Download the 26.1.1 prerelease](https://github.com/TQNL/TQNL-Redstone-Numbers-Mod/releases/tag/v0.1.4-mc26.1.1)
 (JAR, optional cosmetic pack and checksums).
 
 Requires **Fabric Loader 0.19.5+ and Fabric API 0.155.3+26.1.2**. Sodium, Iris,
@@ -23,6 +23,10 @@ Packs** menu. It starts disabled. Move it to Selected and choose Done to use the
 same clean-line redstone textures as the earlier packs; move it back to disable.
 Only three dust textures change. Numbers work with either choice.
 
+Turn **Show built-in resource pack** off in settings to hide this pack from the
+menu. It starts ON; pack activation still starts OFF. Restart Minecraft after
+changing visibility. A hidden pack is unavailable and cannot stay active.
+
 The separate **TQNL Redstone Dust Cosmetic** ZIP offers the same textures without
 the mod. Use either the built-in pack or that ZIP. Both carry the previous TQNL
 pack icon, which is also shown for the mod.
@@ -34,6 +38,7 @@ pack icon, which is also shown for the mod.
 ```json
 {
   "enabled": true,
+  "showBuiltinPack": true,
   "range": 16,
   "maxLabels": 1024,
   "scale": 1.0
@@ -45,8 +50,9 @@ Open **Video Settings > Redstone Numbers** in Sodium or Reese's Sodium Options
 edits, **Apply** and **Undo**. All four options use Sodium's supported config API;
 there is no separate form or UI implementation for a Sodium-style menu.
 
-Without Sodium, use the small **RN** button on the video settings screen. Mod Menu
-also provides **Mods > Redstone Numbers > Configure**. This standalone form
+Use **/redstonenumbers** in chat to open the settings form. This is a client
+command and needs no server permission. Mod Menu also provides
+**Mods > Redstone Numbers > Configure**. This standalone form
 previews valid edits immediately: **Done** saves, **Cancel** or Escape restores
 the opening values, and **Reset** previews defaults. Neither Sodium nor Mod Menu
 is required, and no extra configuration library is used.
@@ -68,6 +74,10 @@ zero. They do not simulate server redstone or display unreceived sub-tick pulses
 Opaque blocks occlude the labels; normal text lighting and fog apply.
 
 ## Build
+
+For local interactive testing, double-click **Launch Test Instance.cmd**.
+The [test launcher guide](docs/test-launcher.md) explains the mod picker, presets,
+separate test saves and required local QA caches.
 
 Use JDK 25 to run the pinned Gradle build; output targets Java 25:
 

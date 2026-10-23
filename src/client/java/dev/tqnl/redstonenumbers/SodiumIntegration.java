@@ -3,6 +3,7 @@ package dev.tqnl.redstonenumbers;
 import java.util.Locale;
 import net.caffeinemc.mods.sodium.api.config.ConfigEntryPoint;
 import net.caffeinemc.mods.sodium.api.config.StorageEventHandler;
+import net.caffeinemc.mods.sodium.api.config.option.OptionFlag;
 import net.caffeinemc.mods.sodium.api.config.structure.ConfigBuilder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -53,7 +54,14 @@ public final class SodiumIntegration implements ConfigEntryPoint {
                         .setDefaultValue(100)
                         .setRange(25, 400, 1)
                         .setValueFormatter(value -> Component.literal(
-                                String.format(Locale.ROOT, "%.2f", value / 100.0F)))));
+                                String.format(Locale.ROOT, "%.2f", value / 100.0F))))
+                .addOption(builder.createBooleanOption(id("show_pack"))
+                        .setName(text("show_pack"))
+                        .setTooltip(text("show_pack.help"))
+                        .setStorageHandler(save)
+                        .setBinding(value -> config.showBuiltinPack = value, () -> config.showBuiltinPack)
+                        .setDefaultValue(true)
+                        .setFlags(OptionFlag.REQUIRES_GAME_RESTART)));
     }
 
     private static Identifier id(String path) {

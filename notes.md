@@ -1,5 +1,125 @@
 # Redstone Numbers standalone mod
 
+## Objective
+
+Implement0.1.4 on all six supported targets:1.21.11,26.1,26.1.1,26.1.2,26.2,26.3.
+Add showBuiltinPack (default true), remove the video-menu shortcut completely,
+and open the existing settings form using /redstonenumbers instead.
+
+## Constraints
+
+Keep native Sodium/Reese's and optional Mod Menu settings and assignable keys.
+Use Fabric's client command API with no server permissions. Open on the next
+client tick so chat cannot immediately close the form. Pack visibility applies
+on restart through normal Fabric registration; no added menu/render hooks.
+Pack activation remains default-off. Preserve user source notes and normal worlds.
+
+## Current state
+
+Branch codex/settings-command-pack-visibility, based on completed26.3main.
+Shared implementation compiles on26.3. Added fifth setting to native forms and
+Sodium with REQUIRES_GAME_RESTART; deleted VideoSettingsIntegration.java and its
+translation keys. Remaining version ports, artifact checks and live UI checks.
+New private work: work/multi-version/settings-update/. Earlier research-only
+settings comparison is superseded by this explicit implementation request.
+
+## Verification
+
+26.3 first build passes; test NO-SOURCE. No new in-game verification yet.
+
+## Outstanding cleanup
+
+Use isolated test clients. Retain necessary migration backups from earlier work;
+remove newly created disposable client worlds after UI checks. Existing retained
+runtimes and blocked empty folders remain documented in the sections below.
+
+## Next steps
+
+Build all six target artifacts; verify command, defaults, save/cancel/reset and
+pack listed/hidden across restarts in real clients. Record exact limits/results.
+
+## Completed local test launcher
+
+## Objective
+
+Create a local test-instance launcher with a mod picker and presets, using the
+prepared runtimes from this project. Default target1.21.11; expose the other five
+prepared stable targets too. Completed. No normal-instance changes or account-data reads.
+
+## Constraints
+
+Use tested preset pins; keep Fabric API and the matching standalone mod required.
+Custom selection can use installed top-level Fabric JARs or explicitly added JARs.
+Keep saves/configuration in named isolated test instances; no QA time-limit kill.
+
+## Current state
+
+Implemented tools/test_launcher.py, Launch Test Instance.cmd, the guide at
+docs/test-launcher.md and tools/test_test_launcher.py. Version/preset controls,
+searchable mod checkboxes, added JARs/new-build replacement, RAM selection,
+dependency checking, persistent isolated instances and remembered selection.
+Read prepared runtime descriptors and synthetic fixture metadata, never real worlds.
+Existing uncommitted normal-instance notes preserved.
+
+## Verification
+
+All three integration checks pass:40 prepared presets plus installed selection,
+Voxy dependency auto-selection, renderer/version conflict rejection, instance
+path boundaries, save reuse and refusal to overwrite edited copied JARs. Older
+nested Fabric API inside DH correctly yields to the newer external API.
+GUI verification completed: selected Sodium/native settings plus AppleSkin via
+checkbox, launched6 JARs, inspected native powered0-15/zero images. Duplicate
+live-instance launch rejected. Fixed missing options-version header, then launched
+a fresh Minimal instance directly into its fixture with no Welcome screen.
+Both games saved and stopped. Windows .cmd entry point opened the picker correctly.
+Artifact/privacy audit passes; mod source/JAR unchanged by this helper.
+
+## Outstanding cleanup
+
+Earlier blocked empty folders remain documented below. Retained QA runtimes are
+needed by this requested launcher; preserve shared work/qa/cache and
+work/multi-version/runtime. User-created launcher instances remain until removed
+by the user. Both launcher-smoke verification instances are now removed; no test
+game or picker process remains. work/multi-version/test-launcher/verification
+retains two native images and a compact results.json to substantiate the GUI test;
+remove these when the next launcher validation supersedes them. The small
+picker.json retains defaults (1.21.11 / Minimal / testing). No new cleanup failure.
+Prepared clients' mod JARs/profile.json and minimal fixture metadata/datapacks are
+also launcher inputs; retain them while using the picker, remove when it is retired.
+
+## Next steps
+
+Double-click Launch Test Instance.cmd; choose a preset/mod selection and Launch.
+See docs/test-launcher.md for adding fresh mod builds and the local runtime-cache
+dependency. No automatic continuation or mod release publication is scheduled.
+
+## Normal-instance migration: 2026-10-23
+
+- User authorizes replacing legacy number packs in the normal .minecraft root,
+  installing the1.21.11 standalone mod and latest compatible Voxy/SeedGen, then
+  launching the existing Fabric profile through Minecraft Launcher and testing.
+- Installed published0.1.3+mc1.21.11 (SHA256 b1977e0f61df6a86c27fb9b172d85b209b1a0cda99cd72a3adc8f4a2ad839845).
+  Fresh publisher copies of Voxy0.2.16-beta and SeedGen0.3.0 remain latest for
+  this target; their existing versions already matched. Sodium0.8.12 retained.
+- Six legacy Facing Numbers packs removed, old .vah-backup removed; originals
+  backed up outside the instance in work/multi-version/normal-instance-20261023/
+  backup. Recovery manifest and migration receipt are beside it. No accounts copied.
+- Removed37 legacy number/dust members from TQNL Vanilla Tweaks.zip;161 unrelated
+  members byte-identical. Removed old selected-pack and Iris pack references.
+- Empty resourcepacks/core shader versions remains: rmdir got WinError5 and
+  native removal was blocked by automatic approval review. No files remain there.
+- Official Launcher Play used the existing normal Fabric1.21.11/Loader0.19.5
+  profile and Java25. Live client loaded242 mods. Native F2 screenshots verify
+  all sixteen labels0-15 and live zero update from an overhead test-world view.
+  Voxy render system created; SeedGen completed a real noise-terrain fill.
+  Initial SeedGen fill briefly slowed rendering; nonfatal Voxy node warnings
+  remain. This is a brief smoke test, not a performance certification.
+- Saved/quit to title and left the normal client open there. All44 existing
+  world level.dat hashes unchanged. Final scan found no legacy pack/number-model
+  members. Fresh test world,12 screenshots and3 generated per-world configs moved
+  outside the instance under the same private work folder. No user worlds removed.
+  Private test-receipt.json, cleanup-receipt.json and evidence/ record the result.
+
 ## Objective and scope
 
 User now explicitly authorizes every stable Minecraft release from1.21.11 through
@@ -69,8 +189,75 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
 - Current branch codex/mc-26.1.1. Build/audit pass; JAR SHA256
   1b71bcdd118b6fdb1a45ea2ffc4052c7f02cfe90ae7edd52d8313910fa77f687.
   All seven powered/zero smoke profiles pass, DH with Sodium without Iris.
-  Preservation4561 unchanged. Final receipt/audit/push/publication next, then
-  26.1.2. No26.1.2+build started.
+  Preservation4561 unchanged. Published source1623049f9cd94b6a0ac72f58f32d571fbbc14cb4
+  to main/codex/mc-26.1.1 and v0.1.3-mc26.1.1. Three public assets independently
+  rehashed against local bytes; receipt work/multi-version/release-receipt-26.1.1.json.
+- Current branch codex/mc-26.1.2, build/audit pass. JAR SHA256
+  616903d90d41586472e345c30ed9aa8479ccb4cb4067f6eb62d3369f7049b680.
+  Minimal and Sodium/Reese's powered/zero smoke pass, preservation4561 unchanged.
+  GPU window capture is white on the0.9stack; native F2 remains reliable. First
+  menu navigation attempt reached its bounded watchdog; no menu pass claimed yet.
+  Iris/BSL now passes powered/zero too. Two menu attempts hit the bounded
+  watchdog after their completed world smoke; native0.9menu remains unverified.
+  Stop additional menu retries to honor brief tests. Continue Complementary,
+  All seven26.1.2 world smoke profiles pass, including DH+Iris and Vulkan.
+  Native0.9menu visual qualification remains above. Next receipt/audit/publish,
+  Published source c356b05f34320b92315432635bba88ce07d1ed1d to main and
+  codex/mc-26.1.2, release v0.1.3-mc26.1.2. All three public downloads rehashed
+  against local bytes; private release-receipt-26.1.2.json.
+  Do not reuse expired window handles.
+  Native Sodium0.9.2
+  compile API; normal stack Iris1.11.4/Reese's2.2.4. Voxy profile separately pinned
+  to its supported Sodium0.9.1/Iris1.11.3/Reese's2.2.3. DH+Iris now supported by
+  the available native stack.
+- Current branch codex/mc-26.2. Build/audit pass: API0.161.0+26.2,
+  Mod Menu20.0.3, Sodium0.9.2, resource format88.0. Six available profiles;
+  no publisher-listed VulkanMod26.2. Native camera accessor, Gui screen ownership
+  and LightCoordsUtil calls adapted; no new hooks. Minimal/Sodium/Iris-BSL
+  powered/zero smoke pass, standalone form opens with all defaults intact.
+  JAR SHA2560f944efe8f576fdb447092a238b59b3eca103e873a3702e3b749a94245d63054.
+  Preservation4561 unchanged. All six available profiles pass powered0-15 and
+  live zero native visuals, including Complementary, Voxy and DH+Iris. DH needed
+  one brief relaunch to capture zero before its watchdog. Published source
+  ca82c2c22910c1f8a2baf3555dc3d08c5209dfa3 to main/codex/mc-26.2 and release
+  v0.1.3-mc26.2. All three public downloads independently rehashed successfully.
+- Current branch codex/mc-26.3, final stable target. Java25, API0.164.0+26.3,
+  Mod Menu21.0.0, Sodium0.9.2, resource format97.1. Building before six available
+  isolated world checks; VulkanMod unavailable. Build/artifact audit passes;
+  native renames RedstoneWireBlock, PoseStack.rotate and InputConstants.KEYBOARD
+  adapted from official client bytecode. No new hooks or fallback rendering.
+  Gradle test remains NO-SOURCE. Minimal powered/zero native F2 visuals pass;
+  JAR573e044d340e7c76a64c150280be23a3ff7c7fea58429e4cb397a7db36b36261.
+  GPU capture of the settings attempt was black; no26.3menu visual pass claimed.
+  Sodium/Reese's, Iris/BSL and Iris/Complementary powered/zero visuals also pass.
+  Voxy0.2.20 also passes; log confirms its IrisVoxyRenderPipeline/MDI renderer
+  created and shut down normally. DH3.3.4/Iris1.11.7/Complementary passes the
+  nearby powered/zero visual check but logs render-pass/GL warnings; no clean-log
+  or distant-LOD pass claimed. All six26.3profiles checked. Public checkpoint and
+  artifact/privacy audit pass. Final preservation:4561 unchanged, none missing.
+  Every owned campaign client is stopped (final-owned-clients.json); the unique
+  task Gradle daemon is stopped. Published source
+  fbb8a069d6552afea32fef7ac67e07fa55a3b136 to main/codex/mc-26.3 and release
+  v0.1.3-mc26.3. All three public assets downloaded without credentials and
+  rehashed against audited local bytes; all match (release-receipt-26.3.json).
+
+## Stable-release campaign result
+
+- Built and checked1.21.11,26.1,26.1.1,26.1.2,26.2,26.3 in chronological order,
+  completing each public checkpoint before the next target build.40 selected
+  version/profile checks total: seven each through26.1.2 and six each for26.2/3.
+- Exact inputs, public file hashes, native screenshot hashes and qualifications
+  are in docs/compatibility/*.json.40 checks are brief world smokes, not full
+  scene/performance certification. VulkanMod26.2/3 unavailable; DH26.1/1 uses
+  Sodium without Iris due incompatible upstream versions. No dependency override.
+- Native Sodium0.9menu visual testing remains qualified; earlier26.1 native
+  settings, vanilla shortcut and default-off Resource Packs listing were verified.
+- Retain private evidence/fixtures under work/ via task-specific D: junctions.
+  Empty work/qa-move-residue remains because automatic approval blocked cleanup.
+  No further versions or automatic continuation are scheduled after26.3.
+- Campaign complete. All six targets pushed, with version branches and public
+  versioned JAR/cosmetic/checksum downloads. Mod releases retain prerelease status.
+  Local main is advanced to the completed source; no installed profile changed.
 
 ## 1.21.11 update checkpoint: 0.1.3
 
