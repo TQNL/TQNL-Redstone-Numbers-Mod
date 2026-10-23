@@ -2,6 +2,8 @@ package dev.tqnl.redstonenumbers;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import java.nio.file.Path;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientChunkEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -28,16 +30,22 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
     private static Path configPath;
     private final NumberRenderer renderer = new NumberRenderer();
     private ClientLevel previousLevel;
+    private boolean settingsRequested;
 
     @Override
     public void onInitializeClient() {
         configPath = FabricLoader.getInstance().getConfigDir().resolve("redstonenumbers.json");
         config = ModConfig.load(configPath);
-        VideoSettingsIntegration.register();
-        ResourceLoader.registerBuiltinPack(
+        if (config.showBuiltinPack) ResourceLoader.registerBuiltinPack(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "clean_lines"),
                 FabricLoader.getInstance().getModContainer("redstonenumbers").orElseThrow(),
                 Component.translatable("pack.redstonenumbers.clean_lines.title"), PackActivationType.NORMAL);
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) ->
+                dispatcher.register(ClientCommandManager.literal("redstonenumbers").executes(context -> {
+                    // Chat closes after executing a command. Open the form on the next client tick.
+                    settingsRequested = true;
+                    return 1;
+                })));
         KeyMapping.Category category = KeyMapping.Category.register(
                 Identifier.fromNamespaceAndPath("redstonenumbers", "controls"));
         KeyMapping toggle = KeyBindingHelper.registerKeyBinding(new KeyMapping("key.redstonenumbers.toggle",
@@ -61,6 +69,10 @@ public final class RedstoneNumbersClient implements ClientModInitializer {
                 }
             }
             while (settings.consumeClick()) {
+                settingsRequested = true;
+            }
+            if (settingsRequested) {
+                settingsRequested = false;
                 client.setScreen(createSettingsScreen(client.screen));
             }
             if (client.level != previousLevel) {
