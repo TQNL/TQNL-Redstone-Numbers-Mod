@@ -2,6 +2,46 @@
 
 ## Objective
 
+Implement0.1.4 on all six supported targets:1.21.11,26.1,26.1.1,26.1.2,26.2,26.3.
+Add showBuiltinPack (default true), remove the video-menu shortcut completely,
+and open the existing settings form using /redstonenumbers instead.
+
+## Constraints
+
+Keep native Sodium/Reese's and optional Mod Menu settings and assignable keys.
+Use Fabric's client command API with no server permissions. Open on the next
+client tick so chat cannot immediately close the form. Pack visibility applies
+on restart through normal Fabric registration; no added menu/render hooks.
+Pack activation remains default-off. Preserve user source notes and normal worlds.
+
+## Current state
+
+Branch codex/settings-command-pack-visibility, based on completed26.3main.
+Shared implementation compiles on26.3. Added fifth setting to native forms and
+Sodium with REQUIRES_GAME_RESTART; deleted VideoSettingsIntegration.java and its
+translation keys. Remaining version ports, artifact checks and live UI checks.
+New private work: work/multi-version/settings-update/. Earlier research-only
+settings comparison is superseded by this explicit implementation request.
+
+## Verification
+
+26.3 first build passes; test NO-SOURCE. No new in-game verification yet.
+
+## Outstanding cleanup
+
+Use isolated test clients. Retain necessary migration backups from earlier work;
+remove newly created disposable client worlds after UI checks. Existing retained
+runtimes and blocked empty folders remain documented in the sections below.
+
+## Next steps
+
+Build all six target artifacts; verify command, defaults, save/cancel/reset and
+pack listed/hidden across restarts in real clients. Record exact limits/results.
+
+## Completed local test launcher
+
+## Objective
+
 Create a local test-instance launcher with a mod picker and presets, using the
 prepared runtimes from this project. Default target1.21.11; expose the other five
 prepared stable targets too. Completed. No normal-instance changes or account-data reads.
@@ -414,3 +454,4 @@ Use Computer Use for real-client checks; no broad performance benchmark requeste
 - Milestone implementation and publication finished. Performance qualification
   above remains explicit; no5%certification claimed. Stop at1.21.11. No further
   implementation, version port or automatic continuation is scheduled.
+
